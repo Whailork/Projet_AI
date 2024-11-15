@@ -44,6 +44,9 @@ class AProjet_AICharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UAIPerceptionStimuliSourceComponent* StimuliSource;
+
 public:
 	AProjet_AICharacter();
 
