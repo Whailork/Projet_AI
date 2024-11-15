@@ -29,7 +29,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Fonction appelée lors d'un overlap
+	// Fonction appelÃ©e lors d'un overlap
 	UFUNCTION()
 	void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 		AActor* OtherActor,
