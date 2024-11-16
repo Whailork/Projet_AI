@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Ingredient.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "Projet_AICharacter.generated.h"
@@ -54,7 +55,7 @@ class AProjet_AICharacter : public ACharacter
 	class UAIPerceptionStimuliSourceComponent* StimuliSource;
 
 	UPROPERTY()
-	AActor* currentIngredient;
+	AIngredient* currentIngredient;
 public:
 	AProjet_AICharacter();
 

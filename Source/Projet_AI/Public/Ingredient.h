@@ -3,28 +3,22 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Ingredient.h"
 #include "GameFramework/Actor.h"
-#include "DropBoxActor.generated.h"
+#include "Ingredient.generated.h"
 
 UCLASS()
-class PROJET_AI_API ADropBoxActor : public AActor
+class PROJET_AI_API AIngredient : public AActor
 {
 	GENERATED_BODY()
-
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* SphereCollision;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* StaticMesh;
-
-	UPROPERTY(EditAnywhere)
-	class UBoxComponent* BoxCollision;
-	UPROPERTY()
-	TArray<AIngredient*> requiredIngredients;
-	UPROPERTY()
-	TArray<AIngredient*> currentIngredients;
 	
 public:	
 	// Sets default values for this actor's properties
-	ADropBoxActor();
+	AIngredient();
 
 protected:
 	// Called when the game starts or when spawned
@@ -34,9 +28,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Fonction appelée lors d'un overlap
-	UFUNCTION()
-	void OnBeginOverlap(AActor* thisActor,AActor* OtherActor);
-	UFUNCTION()
-	void OnEndOverlap(AActor* thisActor, AActor* OtherActor);
 };

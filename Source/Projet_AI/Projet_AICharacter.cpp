@@ -9,7 +9,9 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Ingredient.h"
 #include "InputActionValue.h"
+#include "Components/SphereComponent.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception/AISense_Sight.h"
 
@@ -165,15 +167,19 @@ void AProjet_AICharacter::Grab()
 	const TConstArrayView<FVector> points = {Start,impact};
 	TArray<FVector> test = {Start,impact};
 	DrawCentripetalCatmullRomSpline(GetWorld(),{Start,impact},FColor::Blue,0.5,8,true,2,0,2);
-	if(auto hitActor = Cast<AActor>(HitResult.HitObjectHandle.FetchActor()))
+	if(auto hitActor = Cast<AIngredient>(HitResult.HitObjectHandle.FetchActor()))
 	{
-		/*if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 100)
-		{*/
+		if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 300)
+		{
+			//si on disable pas la physic, il ne bougera pas
+			hitActor->SphereCollision->SetSimulatePhysics(false);
 			if(hitActor->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
 			{
+				//hitActor->StaticMesh->AttachToComponent(hitActor->SphereCollision,FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+				//hitActor->StaticMesh->AddRelativeLocation(FVector(0,0,-20));
 				currentIngredient = hitActor;
 			}
-		//}
+		}
 	}
 }
 
@@ -182,7 +188,9 @@ void AProjet_AICharacter::Drop()
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Drop"));
 	if(currentIngredient)
 	{
+		
 		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		currentIngredient->SphereCollision->SetSimulatePhysics(true);
 		currentIngredient = nullptr;
 	}
 }
