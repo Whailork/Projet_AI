@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Ingredient.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "Projet_AICharacter.generated.h"
@@ -43,10 +44,18 @@ class AProjet_AICharacter : public ACharacter
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
-
+	//grab ingredient Action
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* GrabAction;
+	//drop ingredient Action
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* DropAction;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UAIPerceptionStimuliSourceComponent* StimuliSource;
 
+	UPROPERTY()
+	AIngredient* currentIngredient;
 public:
 	AProjet_AICharacter();
 
@@ -58,6 +67,9 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	void Grab();
+	void Drop();
 
 
 protected:

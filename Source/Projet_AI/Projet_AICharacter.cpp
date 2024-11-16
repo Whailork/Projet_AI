@@ -9,7 +9,9 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Ingredient.h"
 #include "InputActionValue.h"
+#include "Components/SphereComponent.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception/AISense_Sight.h"
 
@@ -59,6 +61,7 @@ AProjet_AICharacter::AProjet_AICharacter()
 
 	StimuliSource->RegisterForSense(TSubclassOf<UAISense_Sight>());
 	StimuliSource->RegisterWithPerceptionSystem();
+	
 }
 
 void AProjet_AICharacter::BeginPlay()
@@ -93,6 +96,12 @@ void AProjet_AICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AProjet_AICharacter::Look);
+
+		//Grab
+		EnhancedInputComponent->BindAction(GrabAction, ETriggerEvent::Triggered,this,&AProjet_AICharacter::Grab);
+
+		//Drop
+		EnhancedInputComponent->BindAction(DropAction, ETriggerEvent::Triggered,this,&AProjet_AICharacter::Drop);
 	}
 	else
 	{
@@ -133,5 +142,55 @@ void AProjet_AICharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+void AProjet_AICharacter::Grab()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
+
+	FVector Start, LineTraceEnd, ForwardVector;
+	FHitResult HitResult;
+
+	Start = FollowCamera->GetComponentLocation();
+
+	ForwardVector = FollowCamera->GetForwardVector();
+
+	Start = Start + (ForwardVector * 450);
+	LineTraceEnd = Start + (ForwardVector * 10000);
+	
+
+
+	
+	bool bSuccess = Controller->GetWorld()->LineTraceSingleByChannel(HitResult,Start,LineTraceEnd,ECollisionChannel::ECC_WorldDynamic);
+	const FVector impact = FVector(HitResult.ImpactPoint.X,HitResult.ImpactPoint.Y,HitResult.ImpactPoint.Z);
+	const TConstArrayView<FVector> points = {Start,impact};
+	TArray<FVector> test = {Start,impact};
+	DrawCentripetalCatmullRomSpline(GetWorld(),{Start,impact},FColor::Blue,0.5,8,true,2,0,2);
+	if(auto hitActor = Cast<AIngredient>(HitResult.HitObjectHandle.FetchActor()))
+	{
+		if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 300)
+		{
+			//si on disable pas la physic, il ne bougera pas
+			hitActor->SphereCollision->SetSimulatePhysics(false);
+			if(hitActor->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
+			{
+				//hitActor->StaticMesh->AttachToComponent(hitActor->SphereCollision,FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+				//hitActor->StaticMesh->AddRelativeLocation(FVector(0,0,-20));
+				currentIngredient = hitActor;
+			}
+		}
+	}
+}
+
+void AProjet_AICharacter::Drop()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Drop"));
+	if(currentIngredient)
+	{
+		
+		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		currentIngredient->SphereCollision->SetSimulatePhysics(true);
+		currentIngredient = nullptr;
 	}
 }
