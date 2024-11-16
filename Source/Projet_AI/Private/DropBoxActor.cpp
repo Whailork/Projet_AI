@@ -23,7 +23,8 @@ void ADropBoxActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &ADropBoxActor::OnBeginOverlap);
+	this->OnActorBeginOverlap.AddDynamic(this, &ADropBoxActor::OnBeginOverlap);
+	this->OnActorEndOverlap.AddDynamic(this, &ADropBoxActor::OnEndOverlap);
 }
 
 // Called every frame
@@ -33,11 +34,22 @@ void ADropBoxActor::Tick(float DeltaTime)
 
 }
 
-void ADropBoxActor::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void ADropBoxActor::OnBeginOverlap(AActor* thisActor, AActor* OtherActor)
 {
-	if (OtherActor && OtherActor != this)
+	if(auto ingredient = Cast<AIngredient>(OtherActor))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlapped!!!"));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient Added"));	
+		currentIngredients.Add(ingredient);
 	}
 }
+
+void ADropBoxActor::OnEndOverlap(AActor* thisActor, AActor* OtherActor)
+{
+	if(auto ingredient = Cast<AIngredient>(OtherActor))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient removed"));	
+		currentIngredients.Remove(ingredient);
+	}
+}
+
 
