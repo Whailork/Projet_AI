@@ -124,6 +124,21 @@ bool AProjet_AICharacter::GetTriggerNotify()
 	return  triggerNotify;
 }
 
+void AProjet_AICharacter::SetTriggerGrab(bool value)
+{
+	triggerGrab = value;
+}
+
+void AProjet_AICharacter::SetTriggerShrug(bool value)
+{
+	triggerShrug = value;
+}
+
+void AProjet_AICharacter::SetTriggerNotify(bool value)
+{
+	triggerNotify = value;
+}
+
 void AProjet_AICharacter::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
@@ -224,8 +239,6 @@ void AProjet_AICharacter::attatchIngredient()
 				//hitActor->StaticMesh->AttachToComponent(hitActor->SphereCollision,FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 				//hitActor->StaticMesh->AddRelativeLocation(FVector(0,0,-20));
 				currentIngredient = hitActor;
-				triggerGrab = false;
-				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("false"));
 			}
 		}
 	}

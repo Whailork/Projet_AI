@@ -75,6 +75,12 @@ public:
 	bool GetTriggerShrug();
 	UFUNCTION(BlueprintCallable)
 	bool GetTriggerNotify();
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerGrab(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerShrug(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerNotify(bool value);
 protected:
 
 	/** Called for movement input */
