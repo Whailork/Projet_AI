@@ -109,6 +109,21 @@ void AProjet_AICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 	}
 }
 
+bool AProjet_AICharacter::GetTriggerGrab()
+{
+	return triggerGrab;
+}
+
+bool AProjet_AICharacter::GetTriggerShrug()
+{
+	return triggerShrug;
+}
+
+bool AProjet_AICharacter::GetTriggerNotify()
+{
+	return  triggerNotify;
+}
+
 void AProjet_AICharacter::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
@@ -147,8 +162,39 @@ void AProjet_AICharacter::Look(const FInputActionValue& Value)
 
 void AProjet_AICharacter::Grab()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
+	FVector Start, LineTraceEnd, ForwardVector;
+	FHitResult HitResult;
 
+	Start = FollowCamera->GetComponentLocation();
+
+	ForwardVector = FollowCamera->GetForwardVector();
+
+	Start = Start + (ForwardVector * 450);
+	LineTraceEnd = Start + (ForwardVector * 10000);
+	
+
+
+	
+	bool bSuccess = Controller->GetWorld()->LineTraceSingleByChannel(HitResult,Start,LineTraceEnd,ECollisionChannel::ECC_WorldDynamic);
+	const FVector impact = FVector(HitResult.ImpactPoint.X,HitResult.ImpactPoint.Y,HitResult.ImpactPoint.Z);
+	const TConstArrayView<FVector> points = {Start,impact};
+	TArray<FVector> test = {Start,impact};
+	DrawCentripetalCatmullRomSpline(GetWorld(),{Start,impact},FColor::Blue,0.5,8,true,2,0,2);
+	if(auto hitActor = Cast<AIngredient>(HitResult.HitObjectHandle.FetchActor()))
+	{
+		if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 300)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("true"));
+			triggerGrab = true;
+		}
+	}
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
+	
+	
+}
+
+void AProjet_AICharacter::attatchIngredient()
+{
 	FVector Start, LineTraceEnd, ForwardVector;
 	FHitResult HitResult;
 
@@ -178,9 +224,12 @@ void AProjet_AICharacter::Grab()
 				//hitActor->StaticMesh->AttachToComponent(hitActor->SphereCollision,FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 				//hitActor->StaticMesh->AddRelativeLocation(FVector(0,0,-20));
 				currentIngredient = hitActor;
+				triggerGrab = false;
+				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("false"));
 			}
 		}
 	}
+	
 }
 
 void AProjet_AICharacter::Drop()
