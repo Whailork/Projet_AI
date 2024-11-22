@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Ingredient.h"
 #include "GameFramework/Actor.h"
+#include "Subsystem/RecipeFactorySubsystem.h"
 #include "DropBoxActor.generated.h"
 
 UCLASS()
@@ -18,25 +19,43 @@ class PROJET_AI_API ADropBoxActor : public AActor
 	UPROPERTY(EditAnywhere)
 	class UBoxComponent* BoxCollision;
 	UPROPERTY()
-	TArray<AIngredient*> requiredIngredients;
+	TArray<ARecipeItem*> RequiredIngredients;
 	UPROPERTY()
-	TArray<AIngredient*> currentIngredients;
-	
-public:	
-	// Sets default values for this actor's properties
+	TArray<ARecipeItem*> CurrentIngredients;
+
+	UPROPERTY()
+	FRecipeData RecipeData;
+
+	bool bHasRecipe;
+
+public:
 	ADropBoxActor();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	//This should be call when a recipe is completed
+	UFUNCTION(BlueprintCallable)
+	virtual void CompleteRecipe();
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	//Use this for additional logic in blueprint 
+	UFUNCTION(BlueprintImplementableEvent,BlueprintCallable)
+	void CompleteRecipe_BP();
 
+	UFUNCTION(BlueprintImplementableEvent,BlueprintCallable)
+	void OnSetRecipe_BP(const FRecipeData InRecipeData);
+
+public:
 	// Fonction appelée lors d'un overlap
 	UFUNCTION()
-	void OnBeginOverlap(AActor* thisActor,AActor* OtherActor);
+	void OnBeginOverlap(AActor* ThisActor, AActor* OtherActor);
 	UFUNCTION()
-	void OnEndOverlap(AActor* thisActor, AActor* OtherActor);
+	void OnEndOverlap(AActor* ThisActor, AActor* OtherActor);
+
+	void SetRecipe(const FRecipeData& InRecipeData);
+
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE bool HasRecipe() const { return bHasRecipe; }
+
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE FRecipeData GetRecipe() const { return RecipeData; }
 };

@@ -14,7 +14,6 @@ void URecipeWidgetItem::SetRecipe(const FRecipeData& RecipeData)
 	Brush.SetResourceObject(RecipeData.Icon.LoadSynchronous());
 	Brush.SetImageSize(RecipeParamSize);
 	RecipeImage->SetBrush(Brush);
-
 	IngredientContainer->ClearChildren();
 
 	for (auto Ingredient : RecipeData.IngredientsList)
