@@ -27,6 +27,7 @@ void URecipeWidgetItem::SetRecipe(const FRecipeData& RecipeData)
 
 		UImage* IngredientImage = WidgetTree->ConstructWidget<UImage>(UImage::StaticClass());
 		IngredientImage->SetBrush(IngredientBrush);
+
 		IngredientContainer->AddChild(IngredientImage);
 	}
 }
