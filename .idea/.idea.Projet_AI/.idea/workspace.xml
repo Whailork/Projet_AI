@@ -12,19 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89dfd70-c9d5-4d42-a68c-6213cd4292fb" name="Changes" comment="">
+    <list default="true" id="06da7b9d-c54d-489f-a67c-81b7eee445e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BB_spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BB_spawner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BPDropBoxActor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BPDropBoxActor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Ingredient.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Ingredient.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/AH/9ZU7DGBWNF78I6E141LL2M.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/AH/9ZU7DGBWNF78I6E141LL2M.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/0K/AJS5DZBZ0TOUP3UENQIZPM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/0K/AJS5DZBZ0TOUP3UENQIZPM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/MK/IROSGGG1E9LCV2UWLOBMA6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/MK/IROSGGG1E9LCV2UWLOBMA6.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +30,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/Projet_AI/Public/Task/BTT_spawnIngredient.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 0
 }]]></component>
-  <component name="ProjectId" id="2pDw0iZiwrdLSrdRy6C1Tm2rliD" />
+  <component name="ProjectId" id="2pDxx00Jfc8s4D1QhRMK95pBcGf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -153,12 +151,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f89dfd70-c9d5-4d42-a68c-6213cd4292fb" name="Changes" comment="" />
-      <created>1732313733371</created>
+      <changelist id="06da7b9d-c54d-489f-a67c-81b7eee445e6" name="Changes" comment="" />
+      <created>1732314690964</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732313733371</updated>
-      <workItem from="1732313735183" duration="750000" />
+      <updated>1732314690964</updated>
+      <workItem from="1732314693118" duration="2093000" />
     </task>
     <servers />
   </component>
