@@ -102,7 +102,6 @@ void AAICharacter::Look(const FInputActionValue& Value)
 void AAICharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
