@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "Components/HorizontalBox.h"
+#include "Components/VerticalBox.h"
 #include"GameplayTagContainer.h"
 #include "CookingWidgetHUD.generated.h"
 
@@ -40,7 +40,7 @@ class COOKINGFACTORY_API UCookingWidgetHUD : public UUserWidget
 
 protected:
 	UPROPERTY(meta=(BindWidget))
-	UHorizontalBox* RecipeContainer;
+	UVerticalBox* RecipeContainer;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class URecipeWidgetItem> RecipeItemClass;

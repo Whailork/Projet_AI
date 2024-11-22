@@ -11,6 +11,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Ingredient.h"
 #include "InputActionValue.h"
+#include "Actor/RecipeItem.h"
 #include "Components/SphereComponent.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception/AISense_Sight.h"
@@ -195,7 +196,7 @@ void AProjet_AICharacter::Grab()
 	const TConstArrayView<FVector> points = {Start,impact};
 	TArray<FVector> test = {Start,impact};
 	DrawCentripetalCatmullRomSpline(GetWorld(),{Start,impact},FColor::Blue,0.5,8,true,2,0,2);
-	if(auto hitActor = Cast<AIngredient>(HitResult.HitObjectHandle.FetchActor()))
+	if(auto hitActor = Cast<ARecipeItem>(HitResult.HitObjectHandle.FetchActor()))
 	{
 		if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 300)
 		{
@@ -228,7 +229,7 @@ void AProjet_AICharacter::attatchIngredient()
 	const TConstArrayView<FVector> points = {Start,impact};
 	TArray<FVector> test = {Start,impact};
 	DrawCentripetalCatmullRomSpline(GetWorld(),{Start,impact},FColor::Blue,0.5,8,true,2,0,2);
-	if(auto hitActor = Cast<AIngredient>(HitResult.HitObjectHandle.FetchActor()))
+	if(auto hitActor = Cast<ARecipeItem>(HitResult.HitObjectHandle.FetchActor()))
 	{
 		if(FVector::Dist(hitActor->GetActorLocation(), GetActorLocation()) < 300)
 		{

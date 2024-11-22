@@ -2,23 +2,34 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include"GameplayTagContainer.h"
 #include "RecipeItem.generated.h"
+
+enum class EIngredientType;
 
 UCLASS()
 class COOKINGFACTORY_API ARecipeItem : public AActor
 {
 	GENERATED_BODY()
+public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* SphereCollision;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* StaticMesh;
 
+	UPROPERTY(BlueprintReadOnly)
+	FGameplayTag IngredientTag;
+
+	UPROPERTY(BlueprintReadOnly)
+	EIngredientType IngredientType;
 public:
 	ARecipeItem();
 
 	FORCEINLINE void SetMesh(UStaticMesh* NewMesh) 
 	{
+		if(NewMesh ==nullptr)return;
+		
 		if(!HasActorBegunPlay())
 		{
 			IngredientMesh = NewMesh;
