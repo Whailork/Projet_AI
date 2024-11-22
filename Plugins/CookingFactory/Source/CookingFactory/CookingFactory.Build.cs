@@ -23,7 +23,8 @@ public class CookingFactory : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-				"GameplayTags"
+				"GameplayTags",
+				"UMG"
 			}
 			);
 	}

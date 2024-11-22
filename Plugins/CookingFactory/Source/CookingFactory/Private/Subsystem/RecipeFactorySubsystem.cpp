@@ -37,17 +37,17 @@ FRecipeData URecipeFactorySubsystem::AddRecipe() const
 }
 
 ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag RecipeTag, const FVector InLocation,
-                                                           const FRotator InRotation) const
+                                                           const FRotator InRotation) 
 {
 	TArray<FIngredientTable*> OutIngredientRows;
-	IngredientsContainer->GetAllRows<FIngredientTable>("", OutIngredientRows);
+	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);
 
 	for (const FIngredientTable* Ingredient : OutIngredientRows)
 	{
 		if (Ingredient->Name == RecipeTag)
 		{
 			ARecipeItem* RecipeItem = GetWorld()->SpawnActor<ARecipeItem>(InLocation, InRotation);
-			RecipeItem->SetMesh(Ingredient->Mesh.Get());
+			RecipeItem->SetMesh(Ingredient->Mesh.LoadSynchronous());
 			return RecipeItem;
 		}
 	}
@@ -57,10 +57,10 @@ ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag Re
 FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 {
 	TArray<FIngredientTable*> OutIngredientRows;
-	IngredientsContainer->GetAllRows<FIngredientTable>("", OutIngredientRows);
+	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);
 
 	TArray<FRecipeTable*> OutRecipeRows;
-	RecipesContainer->GetAllRows<FRecipeTable>("", OutRecipeRows);
+	RecipesContainer.LoadSynchronous()->GetAllRows<FRecipeTable>("", OutRecipeRows);
 
 	const int32 RecipeIndex = FMath::RandRange(0, OutRecipeRows.Num() - 1);
 	if (OutRecipeRows.IsValidIndex(RecipeIndex))
@@ -70,6 +70,7 @@ FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 
 		FRecipeData NewRecipe = FRecipeData();
 		NewRecipe.RecipeName = RandomRecipeRow->Name;
+		NewRecipe.Icon = RandomRecipeRow->Icon;
 
 		for (int i = 0; i < NumOfItem; i++)
 		{

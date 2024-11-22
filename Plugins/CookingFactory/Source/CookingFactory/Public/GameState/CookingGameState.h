@@ -19,6 +19,7 @@ class COOKINGFACTORY_API ACookingGameState : public AGameStateBase
 public:
 	UPROPERTY(BlueprintAssignable)
 	FOnEnableRecipe OnEnableRecipe_Event;
+
 	UPROPERTY(BlueprintAssignable)
 	FOnDisableRecipe OnDisableRecipe_Event;
 

@@ -39,7 +39,7 @@ public:
 	FORCEINLINE int32 GetTotalActiveRecipe() const { return TotalActiveRecipe; }
 
 	/**
-	 * This should be call when the player completed a recipe or when one isnt valid anymore to generate a new one
+	 * This should be call when the player completed a recipe or when one isn't valid anymore to generate a new one
 	 */
 	UFUNCTION(BlueprintCallable)
 	void CompletedRecipe_Notify(const FGameplayTag RecipeTag) const;
