@@ -5,6 +5,8 @@
 #include"GameplayTagContainer.h"
 #include "RecipeItem.generated.h"
 
+enum class EIngredientType;
+
 UCLASS()
 class COOKINGFACTORY_API ARecipeItem : public AActor
 {
@@ -18,6 +20,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	FGameplayTag IngredientTag;
+
+	UPROPERTY(BlueprintReadOnly)
+	EIngredientType IngredientType;
 public:
 	ARecipeItem();
 

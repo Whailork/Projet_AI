@@ -1,10 +1,8 @@
 #include "DropBoxActor.h"
 
 #include "Actor/RecipeItem.h"
-#include "Kismet/GameplayStatics.h"
 #include "Components/BoxComponent.h"
 #include "GameMde/CookingGameMode.h"
-#include "Subsystem/DropBoxListenSubsystem.h"
 
 ADropBoxActor::ADropBoxActor()
 {
@@ -29,7 +27,6 @@ void ADropBoxActor::CompleteRecipe()
 {
 	bHasRecipe = false;
 	CompleteRecipe_BP();
-	
 	if (const ACookingGameMode* GM = GetWorld()->GetAuthGameMode<ACookingGameMode>())
 	{
 		GM->CompletedRecipe_Notify(RecipeData.RecipeName);
