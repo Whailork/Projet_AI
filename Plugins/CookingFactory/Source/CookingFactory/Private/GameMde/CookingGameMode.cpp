@@ -30,9 +30,14 @@ void ACookingGameMode::PostInitializeComponents()
 
 void ACookingGameMode::CompletedRecipe_Notify(const FGameplayTag RecipeTag) const
 {
+	FRecipeData OutRecipe;
+	if(CookingGameState->GetActiveRecipe(RecipeTag,OutRecipe))
+	{
+		OnCompletedRecipe_Event.Broadcast(OutRecipe);
+	}
+
 	//remove completed recipe
 	CancelRecipe_Notify(RecipeTag);
-
 	if (CookingGameState->ForceActiveRecipe())
 	{
 		//sucessfull activation recipe
