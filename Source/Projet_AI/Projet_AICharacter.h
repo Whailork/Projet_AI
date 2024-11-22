@@ -21,6 +21,8 @@ class AProjet_AICharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditAnywhere)
+	UAnimSequence* crouchAnim;
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
@@ -59,7 +61,26 @@ class AProjet_AICharacter : public ACharacter
 public:
 	AProjet_AICharacter();
 
+	//les trucs pour les anims
+	UPROPERTY(EditAnywhere)
+	bool triggerGrab;
+	UPROPERTY(EditAnywhere)
+	bool triggerShrug;
+	UPROPERTY(EditAnywhere)
+	bool triggerNotify;
 
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerGrab();
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerShrug();
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerNotify();
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerGrab(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerShrug(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerNotify(bool value);
 protected:
 
 	/** Called for movement input */
@@ -68,7 +89,10 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
+	
 	void Grab();
+	UFUNCTION(BlueprintCallable)
+	void attatchIngredient();
 	void Drop();
 
 
