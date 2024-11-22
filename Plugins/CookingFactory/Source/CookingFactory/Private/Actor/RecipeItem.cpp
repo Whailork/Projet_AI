@@ -17,4 +17,5 @@ ARecipeItem::ARecipeItem()
 void ARecipeItem::BeginPlay()
 {
 	Super::BeginPlay();
+	SetMesh(IngredientMesh);
 }

@@ -57,7 +57,7 @@ void ACookingGameMode::GenerateRecipe() const
 {
 	if (URecipeFactorySubsystem* RecipeFactory = GetWorld()->GetSubsystem<URecipeFactorySubsystem>())
 	{
-		RecipeFactory->Init(IngredientsContainer.Get(), RecipesContainer.Get());
+		RecipeFactory->Init(IngredientsContainer.LoadSynchronous(), RecipesContainer.LoadSynchronous());
 
 		const TArray<FRecipeData> RecipeData = RecipeFactory->GenerateRecipes(GetNumOfRecipe());
 		CookingGameState->SetRecipes(RecipeData);
