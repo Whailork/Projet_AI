@@ -8,7 +8,7 @@
 
 void UCookingWidgetHUD::SetRecipe(const FRecipeData RecipeData)
 {
-	if (RecipeData.IngredientsList.IsEmpty() )return;
+	if (RecipeData.IngredientsList.IsEmpty())return;
 
 	URecipeWidgetItem* RecipeItem = CreateWidget<URecipeWidgetItem>(GetWorld(), RecipeItemClass);
 	RecipeItem->SetRecipe(RecipeData);
@@ -20,14 +20,22 @@ void UCookingWidgetHUD::SetRecipe(const FRecipeData RecipeData)
 
 void UCookingWidgetHUD::RemoveRecipe(const FRecipeData RecipeData)
 {
-	for (int i = 0; i < CreatedRecipeWidget.Num(); ++i)
+	for (int i = 0; i < CreatedRecipeWidget.Num(); i++)
 	{
 		auto& Recipe = CreatedRecipeWidget[i];
+
 		if (Recipe.ID == RecipeData.RecipeName)
 		{
-			RecipeContainer->RemoveChild(Recipe.Widget);
-			CreatedRecipeWidget.RemoveAt(i);
+			const bool bRemoved = RecipeContainer->RemoveChild(Recipe.Widget);
+			if (bRemoved)
+			{
+				RecipeContainer->Modify();
+				CreatedRecipeWidget.RemoveAt(i);
+				
+				RecipeContainer->InvalidateLayoutAndVolatility();
+			}
 			break;
+
 		}
 	}
 }

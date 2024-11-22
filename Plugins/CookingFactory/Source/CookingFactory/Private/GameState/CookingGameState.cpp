@@ -41,7 +41,6 @@ bool ACookingGameState::ForceDisableRecipe(const FGameplayTag RecipeTag)
 		{
 			InactiveRecipe.Add(ActiveRecipe[i]);
 			ActiveRecipe.RemoveAt(i);
-
 			OnDisableRecipe_Event.Broadcast(ActiveRecipe[i]);
 
 			return true;

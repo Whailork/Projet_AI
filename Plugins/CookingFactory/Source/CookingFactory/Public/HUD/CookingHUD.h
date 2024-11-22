@@ -23,6 +23,9 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UFUNCTION()
 	void SetRecipe(const FRecipeData RecipeData);
+
+	UFUNCTION()
 	void RemoveRecipe(const FRecipeData RecipeData);
 };
