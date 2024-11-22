@@ -23,7 +23,7 @@ public:
 
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
-    	UFUNCTION()
+	UFUNCTION()
 	void OnTargetPerceptionForgotten(AActor* Actor);
 
     UPROPERTY(Transient)
