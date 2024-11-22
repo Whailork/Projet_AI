@@ -35,14 +35,12 @@ bool ACookingGameState::ForceActiveRecipe()
 bool ACookingGameState::ForceDisableRecipe(const FGameplayTag RecipeTag)
 {
 	if (ActiveRecipe.IsEmpty()) return false;
-
 	for (int32 i = 0; i < ActiveRecipe.Num(); ++i)
 	{
 		if (ActiveRecipe[i].RecipeName == RecipeTag)
 		{
 			InactiveRecipe.Add(ActiveRecipe[i]);
 			ActiveRecipe.RemoveAt(i);
-
 			OnDisableRecipe_Event.Broadcast(ActiveRecipe[i]);
 
 			return true;

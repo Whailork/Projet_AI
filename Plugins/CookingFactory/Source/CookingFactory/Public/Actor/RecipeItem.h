@@ -17,8 +17,24 @@ class COOKINGFACTORY_API ARecipeItem : public AActor
 public:
 	ARecipeItem();
 
-	FORCEINLINE void SetMesh(UStaticMesh* NewMesh) const { StaticMesh->SetStaticMesh(NewMesh); }
+	FORCEINLINE void SetMesh(UStaticMesh* NewMesh) 
+	{
+		if(!HasActorBegunPlay())
+		{
+			IngredientMesh = NewMesh;
+		}
+		else
+		{
+			StaticMesh->SetStaticMesh(NewMesh);
+
+		}
+	}
 
 protected:
 	virtual void BeginPlay() override;
+
+
+private:
+	UPROPERTY()
+	UStaticMesh* IngredientMesh;
 };

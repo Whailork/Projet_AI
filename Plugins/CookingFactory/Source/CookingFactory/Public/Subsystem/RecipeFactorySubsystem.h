@@ -42,6 +42,9 @@ struct FRecipeData
 	FGameplayTag RecipeName;
 
 	UPROPERTY(BlueprintReadOnly)
+	TSoftObjectPtr<UTexture2D> Icon;
+
+	UPROPERTY(BlueprintReadOnly)
 	TArray<FIngredientData> IngredientsList;
 };
 
@@ -68,7 +71,7 @@ public:
 	FRecipeData AddRecipe() const;
 
 	UFUNCTION(BlueprintCallable)
-	class ARecipeItem* CreateIngredientItem(const FGameplayTag RecipeTag,const FVector InLocation,const FRotator InRotation = FRotator::ZeroRotator) const;
+	class ARecipeItem* CreateIngredientItem(const FGameplayTag RecipeTag,const FVector InLocation,const FRotator InRotation = FRotator::ZeroRotator) ;
 
 private:
 	FRecipeData CreateRecipe() const;

@@ -30,9 +30,14 @@ void ACookingGameMode::PostInitializeComponents()
 
 void ACookingGameMode::CompletedRecipe_Notify(const FGameplayTag RecipeTag) const
 {
+	FRecipeData OutRecipe;
+	if(CookingGameState->GetActiveRecipe(RecipeTag,OutRecipe))
+	{
+		OnCompletedRecipe_Event.Broadcast(OutRecipe);
+	}
+
 	//remove completed recipe
 	CancelRecipe_Notify(RecipeTag);
-
 	if (CookingGameState->ForceActiveRecipe())
 	{
 		//sucessfull activation recipe
@@ -57,7 +62,7 @@ void ACookingGameMode::GenerateRecipe() const
 {
 	if (URecipeFactorySubsystem* RecipeFactory = GetWorld()->GetSubsystem<URecipeFactorySubsystem>())
 	{
-		RecipeFactory->Init(IngredientsContainer.Get(), RecipesContainer.Get());
+		RecipeFactory->Init(IngredientsContainer.LoadSynchronous(), RecipesContainer.LoadSynchronous());
 
 		const TArray<FRecipeData> RecipeData = RecipeFactory->GenerateRecipes(GetNumOfRecipe());
 		CookingGameState->SetRecipes(RecipeData);
