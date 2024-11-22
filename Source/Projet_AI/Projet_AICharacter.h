@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Ingredient.h"
+#include "Actor/RecipeItem.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "Projet_AICharacter.generated.h"
@@ -57,7 +58,7 @@ class AProjet_AICharacter : public ACharacter
 	class UAIPerceptionStimuliSourceComponent* StimuliSource;
 
 	UPROPERTY()
-	AIngredient* currentIngredient;
+	class ARecipeItem* currentIngredient;
 public:
 	AProjet_AICharacter();
 

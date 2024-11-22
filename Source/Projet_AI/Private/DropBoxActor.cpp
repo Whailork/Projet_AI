@@ -1,14 +1,13 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "DropBoxActor.h"
+
+#include "Actor/RecipeItem.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/BoxComponent.h"
+#include "GameMde/CookingGameMode.h"
+#include "Subsystem/DropBoxListenSubsystem.h"
 
-// Sets default values
 ADropBoxActor::ADropBoxActor()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	BoxCollision = CreateDefaultSubobject<UBoxComponent>("BoxCollision");
@@ -18,38 +17,48 @@ ADropBoxActor::ADropBoxActor()
 	StaticMesh->SetupAttachment(BoxCollision);
 }
 
-// Called when the game starts or when spawned
 void ADropBoxActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	this->OnActorBeginOverlap.AddDynamic(this, &ADropBoxActor::OnBeginOverlap);
 	this->OnActorEndOverlap.AddDynamic(this, &ADropBoxActor::OnEndOverlap);
 }
 
-// Called every frame
-void ADropBoxActor::Tick(float DeltaTime)
+void ADropBoxActor::CompleteRecipe()
 {
-	Super::Tick(DeltaTime);
-
-}
-
-void ADropBoxActor::OnBeginOverlap(AActor* thisActor, AActor* OtherActor)
-{
-	if(auto ingredient = Cast<AIngredient>(OtherActor))
+	bHasRecipe = false;
+	CompleteRecipe_BP();
+	
+	if (const ACookingGameMode* GM = GetWorld()->GetAuthGameMode<ACookingGameMode>())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient Added"));	
-		currentIngredients.Add(ingredient);
-	}
-}
-
-void ADropBoxActor::OnEndOverlap(AActor* thisActor, AActor* OtherActor)
-{
-	if(auto ingredient = Cast<AIngredient>(OtherActor))
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient removed"));	
-		currentIngredients.Remove(ingredient);
+		GM->CompletedRecipe_Notify(RecipeData.RecipeName);
 	}
 }
 
 
+void ADropBoxActor::OnBeginOverlap(AActor* ThisActor, AActor* OtherActor)
+{
+	if (const auto Ingredient = Cast<ARecipeItem>(OtherActor))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient Added"));
+		CurrentIngredients.Add(Ingredient);
+	}
+}
+
+void ADropBoxActor::OnEndOverlap(AActor* ThisActor, AActor* OtherActor)
+{
+	if (const auto Ingredient = Cast<ARecipeItem>(OtherActor))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("ingredient removed"));
+		CurrentIngredients.Remove(Ingredient);
+	}
+}
+
+void ADropBoxActor::SetRecipe(const FRecipeData& InRecipeData)
+{
+	bHasRecipe = true;
+	RecipeData = InRecipeData;
+
+	OnSetRecipe_BP(InRecipeData);
+}

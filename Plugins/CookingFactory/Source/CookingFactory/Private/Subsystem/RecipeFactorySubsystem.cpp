@@ -48,6 +48,7 @@ ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag Re
 		{
 			ARecipeItem* RecipeItem = GetWorld()->SpawnActor<ARecipeItem>(InLocation, InRotation);
 			RecipeItem->SetMesh(Ingredient->Mesh.LoadSynchronous());
+			RecipeItem->IngredientTag = Ingredient->Name;
 			return RecipeItem;
 		}
 	}
