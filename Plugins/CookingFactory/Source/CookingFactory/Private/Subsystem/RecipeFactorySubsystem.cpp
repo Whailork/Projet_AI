@@ -15,6 +15,7 @@ void URecipeFactorySubsystem::Init(const UDataTable* InIngredientsTable, const U
 	}
 	IngredientsContainer = InIngredientsTable;
 	RecipesContainer = InRecipesTable;
+	
 }
 
 TArray<FRecipeData> URecipeFactorySubsystem::GenerateRecipes(const int32 InNumOfRecipe)
@@ -54,6 +55,18 @@ ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag Re
 		}
 	}
 	return nullptr;
+}
+
+TArray<FGameplayTag> URecipeFactorySubsystem::getIngredientTags()
+{
+	TArray<FIngredientTable*> OutIngredientRows;
+	TArray<FGameplayTag> toReturnArray;
+	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);
+	for (auto ingredient : OutIngredientRows)
+	{
+		toReturnArray.Add(ingredient->Name);
+	}
+	return toReturnArray;
 }
 
 FRecipeData URecipeFactorySubsystem::CreateRecipe() const
