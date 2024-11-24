@@ -7,6 +7,9 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "GameState/CookingGameState.h"
+#include "GameplayTagContainer.h"
+#include "Subsystem/RecipeFactorySubsystem.h"
 
 ASpawnerManagerController::ASpawnerManagerController(const FObjectInitializer& ObjectInitializer)
 {
@@ -42,50 +45,55 @@ void ASpawnerManagerController::OnPossess(APawn* InPawn)
 		*/
 	}
 
-	//BehaviorTreeComponent->GetBlackboardComponent()
+	//on load les recipes déjà existantes s'il y en a
+	ACookingGameState* gameState = Cast<ACookingGameState>(GetWorld()->GetGameState());
+	TArray<FRecipeData> recipes = gameState->GetActiveRecipes();
+	for (FRecipeData Recipe : recipes)
+	{
+		for (FIngredientData Ingredient : Recipe.IngredientsList)
+		{
+			toSpawnList.Add(Ingredient.Name);
+		}
+	}
+    // on s'abonne à la delegate pour quand on va avoir des nouvelles recettes
+	gameState->OnEnableRecipe_Event.AddDynamic(this,&ASpawnerManagerController::OnNewRecipe);
 }
 
-bool ASpawnerManagerController::Spawn()
+void ASpawnerManagerController::OnNewRecipe(FRecipeData data)
 {
-	/*
-	if (!BlackboardComponent)
+	/*for(int i = 0; i < data.IngredientsList.Num();i++)
+	{*/
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("lol"));
+		//toSpawnList.Add(data.IngredientsList[i].Name);
+	//}
+	/*for (FIngredientData Ingredient : data.IngredientsList)
+	
+		
+	}	*/
+}
+
+bool ASpawnerManagerController::GetNextIngredient(FGameplayTag& outTag)
+{
+	if(toSpawnList.IsEmpty())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("BlackboardComponent is not initialized"));
 		return false;
 	}
-*/
-	// Vérifier ici////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (!BehaviorTreeComponent->GetBlackboardComponent())
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("BehaviorTreeComponent->BlackboardComponent is not initialized"));
-		return false;
-	}
-
-	SpawnLocation = BehaviorTreeComponent->GetBlackboardComponent()->GetValueAsVector(FName("SpawnLocation"));
-	FRotator SpawnRotation = FRotator::ZeroRotator;
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("X : ") + FString::SanitizeFloat(SpawnLocation.X) + TEXT("Y : ") + FString::SanitizeFloat(SpawnLocation.Y) + TEXT("Z : ") + FString::SanitizeFloat(SpawnLocation.Z));
-	
-	/*
-	
-	//SpawnLocation = GetBlackboardComponent()->GetValueAsVector(FName("SpawnLocation"));
-	
-	
-	*/
-
-	/*
-	// TODO :	Use CreateIngredientItem(const FGameplayTag RecipeTag, const FVector InLocation, const FRotator InRotation)
-	//			#include "CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h"
-	AActor* SpawnedObject = GetWorld()->SpawnActor<AActor>(SpawnedIngredient, SpawnLocation, SpawnRotation);
-
-	if (SpawnedObject)
-	{
-		UStaticMeshComponent* ObjectMesh = SpawnedObject->FindComponentByClass<UStaticMeshComponent>();
-		return true;
-	}
-	return false;
-	*/
-
-
+	FGameplayTag toReturnTag = toSpawnList[0];
+	toSpawnList.RemoveAt(0);
+	outTag = toReturnTag;
 	return true;
 }
+
+TArray<FGameplayTag> ASpawnerManagerController::getIngredientTags()
+{
+	FGameplayTagContainer TagContainer;
+	TArray<FGameplayTag> tags;
+	TagContainer.GetGameplayTagArray(tags);
+	/*TArray<FIngredientTable*> OutIngredientRows;
+	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);*/
+	return tags;
+	
+	//GameplayTagsManager::Get().RequestAllGameplayTags(Container, false);
+}
+
+
