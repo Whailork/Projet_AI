@@ -21,5 +21,6 @@ protected:
 	UImage* RecipeImage;
 
 public:
+	UFUNCTION(BlueprintCallable)
 	void SetRecipe(const FRecipeData& RecipeData);
 };

@@ -22,8 +22,12 @@ bool ACookingGameState::GetActiveRecipe(const FGameplayTag RecipeTag, FRecipeDat
 bool ACookingGameState::ForceActiveRecipe()
 {
 	if (InactiveRecipe.IsEmpty())return false;
-
-	const FRecipeData NewRecipe = InactiveRecipe.Pop();
+	
+	const int32 RandIndex = FMath::RandRange(0, InactiveRecipe.Num() - 1);
+	const FRecipeData NewRecipe = InactiveRecipe[RandIndex];
+	
+	InactiveRecipe.RemoveAt(RandIndex);
+	
 	if (OnEnableRecipe_Event.IsBound())
 	{
 		OnEnableRecipe_Event.Broadcast(NewRecipe);

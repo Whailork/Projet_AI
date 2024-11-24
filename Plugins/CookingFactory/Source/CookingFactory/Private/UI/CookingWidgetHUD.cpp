@@ -12,7 +12,7 @@ void UCookingWidgetHUD::SetRecipe(const FRecipeData RecipeData)
 
 	URecipeWidgetItem* RecipeItem = CreateWidget<URecipeWidgetItem>(GetWorld(), RecipeItemClass);
 	RecipeItem->SetRecipe(RecipeData);
-	RecipeContainer->AddChildToHorizontalBox(RecipeItem);
+	RecipeContainer->AddChildToVerticalBox(RecipeItem);
 
 	const FWidgetRecipe Item = FWidgetRecipe(RecipeItem, RecipeData.RecipeName);
 	CreatedRecipeWidget.Add(Item);
