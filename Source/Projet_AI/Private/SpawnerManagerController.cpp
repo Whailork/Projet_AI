@@ -14,7 +14,7 @@
 ASpawnerManagerController::ASpawnerManagerController(const FObjectInitializer& ObjectInitializer)
 {
 	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTree Component Manager"));
-	//BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("Blackboard Component"));
+	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("Blackboard Component"));
 }
 
 void ASpawnerManagerController::OnPossess(APawn* InPawn)
@@ -28,21 +28,12 @@ void ASpawnerManagerController::OnPossess(APawn* InPawn)
 		if (SpawnManager->TreeAsset) {
 			
 			// Run the behavior tree
+			BlackboardComponent->InitializeBlackboard(*SpawnManager->TreeAsset->BlackboardAsset);
 			BehaviorTreeComponent->StartTree(*SpawnManager->TreeAsset);
-		}
 
-		/*
-		if (SpawnManager->TreeAsset->BlackboardAsset)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("SpawnManager->TreeAsset->BlackboardAsset"));
-			BlackboardComponent = BehaviorTreeComponent->GetBlackboardComponent();
-			//UseBlackboard(SpawnManager->TreeAsset->BlackboardAsset, BlackboardComponent);
 		}
-		else
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("!(SpawnManager->TreeAsset->BlackboardAsset)"));
-		}
-		*/
+		
+		
 	}
 
 	//on load les recipes déjà existantes s'il y en a
@@ -61,15 +52,12 @@ void ASpawnerManagerController::OnPossess(APawn* InPawn)
 
 void ASpawnerManagerController::OnNewRecipe(FRecipeData data)
 {
-	/*for(int i = 0; i < data.IngredientsList.Num();i++)
-	{*/
+	for(int i = 0; i < data.IngredientsList.Num();i++)
+	{
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("lol"));
-		//toSpawnList.Add(data.IngredientsList[i].Name);
-	//}
-	/*for (FIngredientData Ingredient : data.IngredientsList)
+		toSpawnList.Add(data.IngredientsList[i].Name);
+	}
 	
-		
-	}	*/
 }
 
 bool ASpawnerManagerController::GetNextIngredient(FGameplayTag& outTag)
@@ -84,16 +72,5 @@ bool ASpawnerManagerController::GetNextIngredient(FGameplayTag& outTag)
 	return true;
 }
 
-TArray<FGameplayTag> ASpawnerManagerController::getIngredientTags()
-{
-	FGameplayTagContainer TagContainer;
-	TArray<FGameplayTag> tags;
-	TagContainer.GetGameplayTagArray(tags);
-	/*TArray<FIngredientTable*> OutIngredientRows;
-	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);*/
-	return tags;
-	
-	//GameplayTagsManager::Get().RequestAllGameplayTags(Container, false);
-}
 
 
