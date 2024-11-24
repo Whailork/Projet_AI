@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "GameplayTagContainer.h"
+#include "Subsystem/RecipeFactorySubsystem.h"
 #include "SpawnerManagerController.generated.h"
 
 /**
@@ -18,6 +20,7 @@ class PROJET_AI_API ASpawnerManagerController : public AAIController
 	TSubclassOf<AActor> SpawnedIngredient;
 
 	FVector SpawnLocation;
+	TArray<FGameplayTag> toSpawnList;
 
 public:
 
@@ -30,4 +33,11 @@ public:
 
 	UPROPERTY(Transient)
 	class UBlackboardComponent* BlackboardComponent;
+
+	UFUNCTION()
+	void OnNewRecipe(FRecipeData data);
+	UFUNCTION(BlueprintCallable)
+	bool GetNextIngredient(FGameplayTag& outTag);
+	UFUNCTION(BlueprintCallable)
+	TArray<FGameplayTag> getIngredientTags();
 };
