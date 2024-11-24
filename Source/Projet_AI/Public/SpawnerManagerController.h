@@ -30,6 +30,4 @@ public:
 
 	UPROPERTY(Transient)
 	class UBlackboardComponent* BlackboardComponent;
-
-	bool Spawn();
 };

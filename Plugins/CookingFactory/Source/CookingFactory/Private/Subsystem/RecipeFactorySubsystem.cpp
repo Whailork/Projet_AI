@@ -3,6 +3,7 @@
 
 #include "Subsystem/RecipeFactorySubsystem.h"
 
+#include "../../../../../../Source/Projet_AI/Public/Ingredient.h"
 #include "Actor/RecipeItem.h"
 #include "Data/IngredientTable.h"
 #include "Data/RecipeTable.h"
@@ -40,6 +41,7 @@ ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag Re
                                                            const FRotator InRotation) 
 {
 	TArray<FIngredientTable*> OutIngredientRows;
+	//if (IngredientsContainer->GetRowMap().Num() > 0){}
 	IngredientsContainer.LoadSynchronous()->GetAllRows<FIngredientTable>("", OutIngredientRows);
 
 	for (const FIngredientTable* Ingredient : OutIngredientRows)
