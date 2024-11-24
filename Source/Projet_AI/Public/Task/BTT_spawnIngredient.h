@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h"
 #include "Ingredient.h"
 #include "BehaviorTree/BTTaskNode.h"
 #include "BTT_spawnIngredient.generated.h"
@@ -18,11 +19,9 @@ class PROJET_AI_API UBTT_spawnIngredient : public UBTTaskNode
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<AIngredient> SpawnedIngredient;
+	URecipeFactorySubsystem* recipeFactorySubsystem; //TSubclassOf<URecipeFactorySubsystem> recipeFactorySubsystem;
 
 private:
-
-	FVector SpawnLocation;
 
 	//class UNavigationSystemV1* NavArea;
 };

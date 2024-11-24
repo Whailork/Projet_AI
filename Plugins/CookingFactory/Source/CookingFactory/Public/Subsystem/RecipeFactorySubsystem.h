@@ -70,6 +70,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FRecipeData AddRecipe() const;
 
+	// Spawns an ingredient item matching the RecipeTag (returns nullptr if none is found)
 	UFUNCTION(BlueprintCallable)
 	class ARecipeItem* CreateIngredientItem(const FGameplayTag RecipeTag,const FVector InLocation,const FRotator InRotation = FRotator::ZeroRotator) ;
 

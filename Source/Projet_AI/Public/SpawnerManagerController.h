@@ -14,6 +14,11 @@ class PROJET_AI_API ASpawnerManagerController : public AAIController
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditAnywhere, Category = "Ingredient")
+	TSubclassOf<AActor> SpawnedIngredient;
+
+	FVector SpawnLocation;
+
 public:
 
 	ASpawnerManagerController(const FObjectInitializer& ObjectInitializer);
@@ -22,4 +27,9 @@ public:
 
 	UPROPERTY(Transient)
 	class UBehaviorTreeComponent* BehaviorTreeComponent;
+
+	UPROPERTY(Transient)
+	class UBlackboardComponent* BlackboardComponent;
+
+	bool Spawn();
 };

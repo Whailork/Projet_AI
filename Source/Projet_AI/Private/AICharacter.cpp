@@ -59,7 +59,6 @@ AAICharacter::AAICharacter()
 void AAICharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void AAICharacter::Move(const FInputActionValue& Value)

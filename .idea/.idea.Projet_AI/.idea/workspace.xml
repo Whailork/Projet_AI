@@ -12,15 +12,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06da7b9d-c54d-489f-a67c-81b7eee445e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="85376cbf-b412-4c06-9e19-193bfbc00c4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/EnumFoodTypeClass.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/EnumFoodTypeClass.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BB_spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BB_spawner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Ingredient.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Ingredient.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_SpawnManagerPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_SpawnManagerPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_SpawnerManagerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_SpawnerManagerController.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnManagerPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnManagerPawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnerManagerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnerManagerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/Task/BTT_spawnIngredient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/Task/BTT_spawnIngredient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/AICharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/AICharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnManagerPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnManagerPawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnerManagerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnerManagerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/Task/BTT_spawnIngredient.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/Task/BTT_spawnIngredient.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +44,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/Projet_AI/Public/Task/BTT_spawnIngredient.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/Platform.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 0
 }]]></component>
-  <component name="ProjectId" id="2pDxx00Jfc8s4D1QhRMK95pBcGf" />
+  <component name="ProjectId" id="2pGU8TM8QOE8n9X7JU6ILu12vXB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -151,12 +164,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="06da7b9d-c54d-489f-a67c-81b7eee445e6" name="Changes" comment="" />
-      <created>1732314690964</created>
+      <changelist id="85376cbf-b412-4c06-9e19-193bfbc00c4d" name="Changes" comment="" />
+      <created>1732391747974</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732314690964</updated>
-      <workItem from="1732314693118" duration="2093000" />
+      <updated>1732391747974</updated>
+      <workItem from="1732391750316" duration="8352000" />
     </task>
     <servers />
   </component>

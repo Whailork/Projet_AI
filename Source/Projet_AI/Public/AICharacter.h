@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnumFoodTypeClass.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "AICharacter.generated.h"
@@ -44,6 +45,12 @@ public:
 	// Sets default values for this character's properties
 	AAICharacter();
 
+	//UPROPERTY(EditAnywhere, Category = "TypeAlimentaire")
+	//class UBehaviorTree* TreeAsset;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TypeAlimentaire")
+	EnumFoodTypeClass FoodType;
+
 	// Behavior Tree
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UBehaviorTree* TreeAsset;
@@ -58,7 +65,7 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
