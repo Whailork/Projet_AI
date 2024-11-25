@@ -38,6 +38,5 @@ public:
 	void OnNewRecipe(FRecipeData data);
 	UFUNCTION(BlueprintCallable)
 	bool GetNextIngredient(FGameplayTag& outTag);
-	UFUNCTION(BlueprintCallable)
-	TArray<FGameplayTag> getIngredientTags();
+
 };

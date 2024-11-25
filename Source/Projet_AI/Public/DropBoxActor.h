@@ -18,7 +18,9 @@ class PROJET_AI_API ADropBoxActor : public AActor
 	UPROPERTY(EditAnywhere)
 	class UBoxComponent* BoxCollision;
 	UPROPERTY()
-	TArray<ARecipeItem*> RequiredIngredients;
+	TArray<FGameplayTag> RequiredTags;
+	UPROPERTY()
+	TArray<FGameplayTag> CurrentTags;
 	UPROPERTY()
 	TArray<ARecipeItem*> CurrentIngredients;
 
