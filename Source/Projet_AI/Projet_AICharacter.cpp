@@ -9,7 +9,6 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "Ingredient.h"
 #include "InputActionValue.h"
 #include "Actor/RecipeItem.h"
 #include "Components/SphereComponent.h"

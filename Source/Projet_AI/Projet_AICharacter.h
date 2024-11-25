@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Ingredient.h"
 #include "Actor/RecipeItem.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"

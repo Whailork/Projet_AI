@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h"
-#include "Ingredient.h"
 #include "BehaviorTree/BTTaskNode.h"
 #include "BTT_spawnIngredient.generated.h"
 

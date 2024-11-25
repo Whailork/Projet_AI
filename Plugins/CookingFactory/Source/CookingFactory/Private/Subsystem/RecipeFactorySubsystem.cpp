@@ -2,8 +2,6 @@
 
 
 #include "Subsystem/RecipeFactorySubsystem.h"
-
-#include "../../../../../../Source/Projet_AI/Public/Ingredient.h"
 #include "Actor/RecipeItem.h"
 #include "Data/IngredientTable.h"
 #include "Data/RecipeTable.h"
