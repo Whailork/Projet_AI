@@ -11,23 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="934abf10-27a9-403a-bf05-b3dad9cd46f0" name="Changes" comment="">
+    <list default="true" id="ac466be9-d96f-4a38-8f1e-083a716bf52f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BTT_SpawnNextIngredient.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BTT_SpawnNextIngredient.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/BT_spawner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BPDropBoxActor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BPDropBoxActor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/WG/5O536G7E57RUP9DFE2DA9O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/WG/5O536G7E57RUP9DFE2DA9O.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/0K/AJS5DZBZ0TOUP3UENQIZPM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/0K/AJS5DZBZ0TOUP3UENQIZPM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/MK/IROSGGG1E9LCV2UWLOBMA6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/MK/IROSGGG1E9LCV2UWLOBMA6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/5O/IBDWMYF9YAI2Q2NQ0KB4GQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Actor/RecipeItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Actor/RecipeItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Subsystem/RecipeFactorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Subsystem/RecipeFactorySubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnerManagerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/SpawnerManagerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnerManagerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/SpawnerManagerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Content/GameMode/GM_Cooking.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Content/GameMode/GM_Cooking.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/DropBoxActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/DropBoxActor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/DropBoxActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/DropBoxActor.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,38 +84,15 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="2pIpQhwAmJ7jJOQEP1Mhs9XbFDa" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2pLeTTWUaNAhLhbKXUtfsCIAZk0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -135,7 +102,7 @@
     "C++ Project.Projet_AI.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "AlgoTypeIngredient",
+    "git-widget-placeholder": "DropBoxMoveIngredients",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -659,13 +626,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="934abf10-27a9-403a-bf05-b3dad9cd46f0" name="Changes" comment="" />
-      <created>1732463431345</created>
+      <changelist id="ac466be9-d96f-4a38-8f1e-083a716bf52f" name="Changes" comment="" />
+      <created>1732549791643</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732463431345</updated>
-      <workItem from="1732463434002" duration="6762000" />
-      <workItem from="1732471859977" duration="6519000" />
+      <updated>1732549791643</updated>
+      <workItem from="1732549795083" duration="5821000" />
     </task>
     <servers />
   </component>
@@ -674,5 +640,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/GameMde/CookingGameMode.cpp</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
