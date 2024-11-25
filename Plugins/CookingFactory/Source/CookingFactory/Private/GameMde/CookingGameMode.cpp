@@ -47,7 +47,7 @@ void ACookingGameMode::CompletedRecipe_Notify(const FGameplayTag RecipeTag) cons
 	if (URecipeFactorySubsystem* RecipeFactory = GetWorld()->GetSubsystem<URecipeFactorySubsystem>())
 	{
 		CancelRecipe_Notify(RecipeTag);
-		const TArray<FRecipeData> RecipeData = RecipeFactory->GenerateRecipes(10);
+		const TArray<FRecipeData> RecipeData = RecipeFactory->GenerateRecipes(InitialNumOfRecipe);
 		CookingGameState->SetRecipes(RecipeData);
 		CookingGameState->ForceActiveRecipe();
 	}

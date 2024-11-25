@@ -87,9 +87,17 @@ FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 		NewRecipe.RecipeName = RandomRecipeRow->Name;
 		NewRecipe.Icon = RandomRecipeRow->Icon;
 
+		TArray<int>Index{-1};
+
 		for (int i = 0; i < NumOfItem; i++)
 		{
-			const int32 IngredientChosen = FMath::RandRange(0, RandomRecipeRow->Ingredients.Num() - 1);
+			int32 IngredientChosen = FMath::RandRange(0, RandomRecipeRow->Ingredients.Num() - 1);
+			while(Index.Contains(IngredientChosen))
+			{
+				IngredientChosen = FMath::RandRange(0, RandomRecipeRow->Ingredients.Num() - 1);
+			}
+
+			Index.Add(IngredientChosen);
 
 			FGameplayTag IngredientTag = RandomRecipeRow->Ingredients[IngredientChosen];
 			auto Predicate = [&IngredientTag](const FIngredientTable* IngredientData)
@@ -98,8 +106,7 @@ FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 			};
 			FIngredientTable** Ingredient = OutIngredientRows.FindByPredicate(Predicate);
 
-			const FIngredientData* NewIngredient = new FIngredientData((*Ingredient)->Name, (*Ingredient)->Mesh,
-			                                                           (*Ingredient)->Icon, (*Ingredient)->Type);
+			const FIngredientData* NewIngredient = new FIngredientData((*Ingredient)->Name, (*Ingredient)->Mesh,(*Ingredient)->Icon, (*Ingredient)->Type);
 
 			NewRecipe.IngredientsList.Add(*NewIngredient);
 		}
