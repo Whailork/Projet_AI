@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "Data/IngredientTable.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "RecipeFactorySubsystem.generated.h"
 
@@ -70,8 +71,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FRecipeData AddRecipe() const;
 
+	// Spawns an ingredient item matching the RecipeTag (returns nullptr if none is found)
 	UFUNCTION(BlueprintCallable)
 	class ARecipeItem* CreateIngredientItem(const FGameplayTag RecipeTag,const FVector InLocation,const FRotator InRotation = FRotator::ZeroRotator) ;
+	UFUNCTION(BlueprintCallable)
+	TArray<FGameplayTag> getIngredientTags();
 
 private:
 	FRecipeData CreateRecipe() const;

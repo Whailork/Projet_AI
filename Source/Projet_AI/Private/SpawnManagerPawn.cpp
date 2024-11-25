@@ -4,14 +4,20 @@
 #include "SpawnManagerPawn.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagsManager.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 ASpawnManagerPawn::ASpawnManagerPawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
+	SphereCollision = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollision"));
+	RootComponent = SphereCollision;
 
-	Tags.Add(FName("Enemy"));
+	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+	StaticMesh->SetupAttachment(SphereCollision);
 }
 
 // Called when the game starts or when spawned
