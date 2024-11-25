@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Ingredient.h"
 #include "GameFramework/Actor.h"
 #include "Subsystem/RecipeFactorySubsystem.h"
 #include "DropBoxActor.generated.h"

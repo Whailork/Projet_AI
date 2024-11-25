@@ -6,7 +6,6 @@
 #include "GameplayTagsManager.h"
 #include"CookingFactory/Public/Subsystem/RecipeFactorySubsystem.h"
 #include "SpawnerManagerController.h"
-#include "Ingredient.h"
 #include "SpawnerManagerController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "GameState/CookingGameState.h"
