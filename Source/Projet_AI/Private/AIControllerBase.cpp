@@ -7,6 +7,7 @@
 #include "BehaviorTree/BlackboardData.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AICharacter.h"
+#include "ExplorationData.h"
 #include "Actor/RecipeItem.h"
 #include "GameState/CookingGameState.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -74,6 +75,13 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
 
             // Initialize the blackboard with the blackboard asset
             BlackboardComponent->InitializeBlackboard(*AICharactere->TreeAsset->BlackboardAsset);
+            //on met la data d'exploration s'il y en a pas déjà  dans le blackboard
+            if(!BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")))
+            {
+                UExplorationData* data = NewObject<UExplorationData>();
+                BlackboardComponent->SetValueAsObject(TEXT("ExplorationData"),data);
+            }
+            
 
             // Run the behavior tree
             BehaviorTreeComponent->StartTree(*AICharactere->TreeAsset);
@@ -121,6 +129,17 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                             {
                                 //l'Ai averti les autres
                                 possessedAi->triggerNotify = true;
+                                
+                                UExplorationData* data = Cast<UExplorationData>(BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")));
+                                if(data)
+                                {
+                                    if(!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
+                                    {
+                                        data->itemsMap[ingredient->IngredientType].Add(ingredient);
+                                        GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
+                            
+                                    }
+                                }
                             }
                         }
                         else
