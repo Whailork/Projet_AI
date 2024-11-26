@@ -173,3 +173,25 @@ void AAICharacter::Drop()
 		currentIngredient = nullptr;
 	}
 }
+
+FString AAICharacter::getFoodType()
+{
+	if(FoodType == EIngredientType::Cereal)
+	{
+		return "Cereal";
+	}
+	if(FoodType == EIngredientType::Dairy)
+	{
+		return "Dairy";
+	}
+	if(FoodType == EIngredientType::Meet)
+	{
+		return "Meet";
+	}
+	if (FoodType == EIngredientType::Fruit_Vegetable)
+	{
+		return "Fruit_Vegetable";
+	}
+	return "";
+	
+}

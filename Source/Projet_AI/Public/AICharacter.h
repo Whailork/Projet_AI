@@ -73,6 +73,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Drop();
 
+	UFUNCTION(BlueprintCallable)
+	FString getFoodType();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
