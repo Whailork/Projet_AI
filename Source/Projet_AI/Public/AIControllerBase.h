@@ -4,9 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
-#include "Ingredient.h"
 #include "Perception/AIPerceptionTypes.h"
 #include "AIControllerBase.generated.h"
+
 
 /**
  * 
@@ -27,7 +27,8 @@ public:
 	
     UFUNCTION()
 	void OnTargetPerceptionForgotten(AActor* Actor);
-	
+
+	class AAICharacter* possessedAi;
 
     UPROPERTY(Transient)
     class UBehaviorTreeComponent* BehaviorTreeComponent;

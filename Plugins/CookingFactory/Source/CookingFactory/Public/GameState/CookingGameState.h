@@ -33,6 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	TArray<FRecipeData> GetActiveRecipes() const { return ActiveRecipe; }
 
+	UFUNCTION(BlueprintCallable)
+	bool isIngredientInActiveRecipe(FGameplayTag ingredientTag);
+
 private:
 	UPROPERTY()
 	TArray<FRecipeData> ActiveRecipe;
