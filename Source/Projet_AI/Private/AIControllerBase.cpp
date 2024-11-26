@@ -7,6 +7,8 @@
 #include "BehaviorTree/BlackboardData.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AICharacter.h"
+#include "Actor/RecipeItem.h"
+#include "GameState/CookingGameState.h"
 #include "Perception/AIPerceptionComponent.h"
 #include "Perception/AISenseConfig_Sight.h"
 
@@ -54,7 +56,7 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
     if (auto AICharactere = Cast<AAICharacter>(InPawn))
     {
 
-        
+        possessedAi = AICharactere;
         if (PerceptionComponent)
         {
             GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("Linking perception events"));
@@ -81,26 +83,59 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
 
 
 void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
-{
+ {
     
-    GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("IntoOnTargetPerceptionUpdated"));
     if (Actor)
     {
-        FString ActorClass = Actor->GetClass()->GetName(); 
-        GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Orange, FString::Printf(TEXT("Detected Actor Class: %s"), *ActorClass));
+        //FString ActorClass = Actor->GetClass()->GetName(); 
+        //GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Orange, FString::Printf(TEXT("Detected Actor Class: %s"), *ActorClass));
         
-        if (Actor->IsA(AIngredient::StaticClass())) 
+         //GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("IntoOnTargetPerceptionUpdated"));
+   if (auto ingredient = Cast<ARecipeItem>(Actor)) 
         {
             if (BlackboardComponent)
             {
-                // Def l'acteur comme TargetIngredient
-                BlackboardComponent->SetValueAsObject(TEXT("TargetIngredient"), Actor);
-                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green, FString::Printf(TEXT("TargetIngredient set to: %s"), *Actor->GetName()));
+                //si l'ingredient est utile
+                if(auto gameState = Cast<ACookingGameState>(GetWorld()->GetGameState()))
+                {
+                    if(gameState->isIngredientInActiveRecipe(ingredient->IngredientTag))
+                    {
+                        //si l'Ai n'a rien dans ses mains
+                        if(possessedAi->currentIngredient == nullptr)
+                        {
+                            //si l'Ai peu le pickup
+                            if(possessedAi->FoodType == ingredient->IngredientType)
+                            {
+                                //pickup ingredient
+                                // Def l'acteur comme TargetIngredient
+                                BlackboardComponent->SetValueAsObject(TEXT("TargetIngredient"), Actor);
+                                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green, FString::Printf(TEXT("TargetIngredient set to: %s"), *Actor->GetName()));
 
-                // Def la position de l'acteur comme TargetLocation 
-                FVector TargetLocation = Actor->GetActorLocation();
-                BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
-                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, FString::Printf(TEXT("IngredientLocation set to: %s"), *TargetLocation.ToString()));
+                                // Def la position de l'acteur comme TargetLocation 
+                                FVector TargetLocation = Actor->GetActorLocation();
+                                BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
+                                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, FString::Printf(TEXT("IngredientLocation set to: %s"), *TargetLocation.ToString()));
+                                //possessedAi->Grab(ingredient);
+                            }
+                            else
+                            {
+                                //l'Ai averti les autres
+                                possessedAi->triggerNotify = true;
+                            }
+                        }
+                        else
+                        {
+                            //on fait apparaitre un point d'exclamation au dessus de sa tête pour dire qu'il l'a vu
+                        }
+                        
+                    }
+                    else
+                    {
+                        //l'Ai shrug et continue l'exploration
+                        possessedAi->triggerShrug = true;
+                    }
+                }
+                
             }
         }
     }

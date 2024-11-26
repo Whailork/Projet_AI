@@ -1,6 +1,8 @@
 ﻿#include "Actor/RecipeItem.h"
 
 #include "Components/SphereComponent.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "Perception/AISense_Sight.h"
 
 ARecipeItem::ARecipeItem()
 {
@@ -12,6 +14,11 @@ ARecipeItem::ARecipeItem()
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	StaticMesh->SetupAttachment(SphereCollision);
+
+	StimuliSource = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("Stimulis"));
+	StimuliSource->RegisterForSense(UAISense_Sight::StaticClass());
+	StimuliSource->RegisterWithPerceptionSystem();
+	
 	//on set les channels de colision
 	SphereCollision->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
 	SphereCollision->SetCollisionResponseToChannel(ECC_Camera,ECR_Ignore);
