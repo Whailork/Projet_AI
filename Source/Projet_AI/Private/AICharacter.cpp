@@ -11,6 +11,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Actor/RecipeItem.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 AAICharacter::AAICharacter()
@@ -103,39 +105,93 @@ void AAICharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-// Called to bind functionality to input
-void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+bool AAICharacter::GetTriggerGrab()
 {
-	/*
-	// Todo : Enlever le Super?
-	//Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	// Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
-			Subsystem->AddMappingContext(DefaultMappingContext, 0);
-		}
-	}
-
-	// Set up action bindings
-	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent)) {
-
-		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
-		
-		// Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAICharacter::Move);
-
-		// Looking
-		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AAICharacter::Look);
-	}
-	else
-	{
-		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
-	}
-	*/
+	return triggerGrab;
 }
 
+bool AAICharacter::GetTriggerShrug()
+{
+	return triggerShrug;
+}
+
+bool AAICharacter::GetTriggerNotify()
+{
+	return  triggerNotify;
+}
+
+void AAICharacter::SetTriggerGrab(bool value)
+{
+	triggerGrab = value;
+}
+
+void AAICharacter::SetTriggerShrug(bool value)
+{
+	triggerShrug = value;
+}
+
+void AAICharacter::SetTriggerNotify(bool value)
+{
+	triggerNotify = value;
+}
+
+
+void AAICharacter::Grab(ARecipeItem* targetIngredient)
+{
+		
+	if (FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Ai grab"));
+		triggerGrab = true;
+	}
+	
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
+}
+
+void AAICharacter::attatchIngredient(ARecipeItem* targetIngredient)
+{
+	if(FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
+	{
+		//si on disable pas la physic, il ne bougera pas
+		targetIngredient->SphereCollision->SetSimulatePhysics(false);
+		if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
+		{
+			currentIngredient = targetIngredient;
+		}
+	}
+	
+}
+
+void AAICharacter::Drop()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Ai Drop"));
+	if(currentIngredient)
+	{
+		
+		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		currentIngredient->SphereCollision->SetSimulatePhysics(true);
+		currentIngredient = nullptr;
+	}
+}
+
+FString AAICharacter::getFoodType()
+{
+	if(FoodType == EIngredientType::Cereal)
+	{
+		return "Cereal";
+	}
+	if(FoodType == EIngredientType::Dairy)
+	{
+		return "Dairy";
+	}
+	if(FoodType == EIngredientType::Meet)
+	{
+		return "Meet";
+	}
+	if (FoodType == EIngredientType::Fruit_Vegetable)
+	{
+		return "Fruit_Vegetable";
+	}
+	return "";
+	
+}

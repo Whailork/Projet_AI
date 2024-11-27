@@ -89,10 +89,11 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
-	
+	UFUNCTION(BlueprintCallable)
 	void Grab();
 	UFUNCTION(BlueprintCallable)
 	void attatchIngredient();
+	UFUNCTION(BlueprintCallable)
 	void Drop();
 
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "EnumFoodTypeClass.h"
+#include "Data/IngredientTable.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "AICharacter.generated.h"
@@ -27,19 +28,7 @@ class PROJET_AI_API AAICharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
 
-	// MappingContext
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputMappingContext* DefaultMappingContext;
 
-	// Input Actions
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* JumpAction;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* MoveAction;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* LookAction;
 
 public:
 	// Sets default values for this character's properties
@@ -49,11 +38,43 @@ public:
 	//class UBehaviorTree* TreeAsset;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TypeAlimentaire")
-	EnumFoodTypeClass FoodType;
+	EIngredientType FoodType;
 
 	// Behavior Tree
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UBehaviorTree* TreeAsset;
+
+	UPROPERTY()
+	class ARecipeItem* currentIngredient;
+	//les trucs pour les anims
+	UPROPERTY(EditAnywhere)
+	bool triggerGrab;
+	UPROPERTY(EditAnywhere)
+	bool triggerShrug;
+	UPROPERTY(EditAnywhere)
+	bool triggerNotify;
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerGrab();
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerShrug();
+	UFUNCTION(BlueprintCallable)
+	bool GetTriggerNotify();
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerGrab(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerShrug(bool value);
+	UFUNCTION(BlueprintCallable)
+	void SetTriggerNotify(bool value);
+
+	UFUNCTION(BlueprintCallable)
+	void Grab(ARecipeItem* targetIngredient);
+	UFUNCTION(BlueprintCallable)
+	void attatchIngredient(ARecipeItem* targetIngredient);
+	UFUNCTION(BlueprintCallable)
+	void Drop();
+
+	UFUNCTION(BlueprintCallable)
+	FString getFoodType();
 
 protected:
 	// Called when the game starts or when spawned
@@ -68,10 +89,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
+	
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/

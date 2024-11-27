@@ -18,6 +18,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* StaticMesh;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UAIPerceptionStimuliSourceComponent* StimuliSource;
+
 	UPROPERTY(BlueprintReadOnly)
 	FGameplayTag IngredientTag;
 
