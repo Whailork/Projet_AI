@@ -176,8 +176,6 @@ void AAICharacter::Drop()
 		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		currentIngredient->SphereCollision->SetSimulatePhysics(true);
 		currentIngredient = nullptr;
-		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
-		controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),nullptr);
 	}
 }
 

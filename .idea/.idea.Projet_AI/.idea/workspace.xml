@@ -18,9 +18,11 @@
     <list default="true" id="10d0c60e-53a4-4da7-adb8-7a2f69777218" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/BTT_CheckForNewTarget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTT_CheckForNewTarget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BTT_Drop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTT_Drop.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_AICharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/buildings/SM_BLD_base_v02_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/buildings/SM_BLD_base_v02_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/ExplorationData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/ExplorationData.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +107,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "C++ Project.Projet_AI.executor": "Run",
+    "C++ Project.Projet_AI.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "DropBoxMoveIngredients",

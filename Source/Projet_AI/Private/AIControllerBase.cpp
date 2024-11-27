@@ -133,19 +133,19 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                                 // Def la position de l'acteur comme TargetLocation 
                                 FVector TargetLocation = Actor->GetActorLocation();
                                 BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
-                                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, FString::Printf(TEXT("IngredientLocation set to: %s"), *TargetLocation.ToString()));
-                                //possessedAi->Grab(ingredient);
+                               
                             }
                             else
                             {
-                                //l'Ai averti les autres
-                                possessedAi->triggerNotify = true;
+                               
                                 
                                 UExplorationData* data = Cast<UExplorationData>(BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")));
                                 if(data)
                                 {
                                     if(!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
                                     {
+                                        //l'Ai averti les autres
+                                        possessedAi->triggerNotify = true;
                                         data->itemsMap[ingredient->IngredientType].Add(ingredient);
                                         GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
                             
@@ -162,6 +162,7 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                     else
                     {
                         //l'Ai shrug et continue l'exploration
+                        GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Red, TEXT("Useless Ingredient"));
                         possessedAi->triggerShrug = true;
                     }
                 }
