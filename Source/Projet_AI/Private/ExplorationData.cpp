@@ -52,5 +52,7 @@ ARecipeItem* UExplorationData::checkForItem(FString itemType)
 	}
 	ARecipeItem* itemToReturn = itemsMap[enumType][0];
 	itemsMap[enumType].RemoveAt(0);
+	GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Orange, TEXT("Ingredient from ExporationData"));
+	//possessedAi->Grab(ingredient);
 	return itemToReturn;
 }
