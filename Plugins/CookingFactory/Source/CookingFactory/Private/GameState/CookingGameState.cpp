@@ -19,6 +19,23 @@ bool ACookingGameState::GetActiveRecipe(const FGameplayTag RecipeTag, FRecipeDat
 	return false;
 }
 
+bool ACookingGameState::isIngredientInActiveRecipe(FGameplayTag ingredientTag)
+{
+	auto activeRecipes = GetActiveRecipes();
+	for (auto activeRecipe : activeRecipes)
+	{
+		for (auto ingredient : activeRecipe.IngredientsList)
+		{
+			if(ingredient.Name == ingredientTag)
+			{
+				return true;
+				
+			}
+		}
+	}
+	return false;
+}
+
 bool ACookingGameState::ForceActiveRecipe()
 {
 	if (InactiveRecipe.IsEmpty())return false;

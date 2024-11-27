@@ -7,6 +7,7 @@
 #include "Perception/AIPerceptionTypes.h"
 #include "AIControllerBase.generated.h"
 
+
 /**
  * 
  */
@@ -16,15 +17,18 @@ class PROJET_AI_API AAIControllerBase : public AAIController
 	GENERATED_BODY()
 	
 public:
-
+	virtual void BeginPlay() override;
     AAIControllerBase(const FObjectInitializer& ObjectInitializer);
 
     virtual void OnPossess(APawn* InPawn) override;
 
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
-	UFUNCTION()
+	
+    UFUNCTION()
 	void OnTargetPerceptionForgotten(AActor* Actor);
+
+	class AAICharacter* possessedAi;
 
     UPROPERTY(Transient)
     class UBehaviorTreeComponent* BehaviorTreeComponent;
@@ -39,4 +43,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UAISenseConfig_Sight* SightConfig;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+    TSubclassOf<AActor> IngredientClass;
+	
 };
