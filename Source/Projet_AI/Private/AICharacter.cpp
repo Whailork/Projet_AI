@@ -2,6 +2,8 @@
 
 
 #include "AICharacter.h"
+
+#include "AIControllerBase.h"
 #include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -12,6 +14,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Actor/RecipeItem.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "Components/SphereComponent.h"
 
 // Sets default values
@@ -157,6 +160,8 @@ void AAICharacter::attatchIngredient(ARecipeItem* targetIngredient)
 		if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
 		{
 			currentIngredient = targetIngredient;
+			AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
+			controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),targetIngredient);
 		}
 	}
 	
@@ -171,6 +176,8 @@ void AAICharacter::Drop()
 		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		currentIngredient->SphereCollision->SetSimulatePhysics(true);
 		currentIngredient = nullptr;
+		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
+		controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),nullptr);
 	}
 }
 

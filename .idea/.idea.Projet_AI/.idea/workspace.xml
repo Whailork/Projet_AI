@@ -13,14 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="10d0c60e-53a4-4da7-adb8-7a2f69777218" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +26,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -61,7 +58,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "C++ Project.Projet_AI.executor": "Run",
+    "C++ Project.Projet_AI.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "DropBoxMoveIngredients",
@@ -596,7 +593,7 @@
       <workItem from="1732635562878" duration="7027000" />
       <workItem from="1732648996103" duration="7339000" />
       <workItem from="1732721074954" duration="759000" />
-      <workItem from="1732722261060" duration="1374000" />
+      <workItem from="1732722261060" duration="2758000" />
     </task>
     <servers />
   </component>
@@ -609,11 +606,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp</url>
-          <line>141</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/GameState/CookingGameState.cpp</url>
           <line>10</line>
