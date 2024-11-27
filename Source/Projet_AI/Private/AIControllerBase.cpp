@@ -7,6 +7,7 @@
 #include "BehaviorTree/BlackboardData.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AICharacter.h"
+#include "DropBoxActor.h"
 #include "ExplorationData.h"
 #include "Actor/RecipeItem.h"
 #include "GameState/CookingGameState.h"
@@ -86,6 +87,16 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
             // Run the behavior tree
             BehaviorTreeComponent->StartTree(*AICharactere->TreeAsset);
         }
+        //on ramasse la position d'une dropbox et on la set comme position de retour dans le blackboard
+        for (auto Element : GetLevel()->Actors)
+        {
+            if(Element.IsA(ADropBoxActor::StaticClass()))
+            {
+                BlackboardComponent->SetValueAsVector(TEXT("CookingZoneLocation"),Element->GetActorLocation());
+                break;
+            }
+        }
+        
     }
 }
 
