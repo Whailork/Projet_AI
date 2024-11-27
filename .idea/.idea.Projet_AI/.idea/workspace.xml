@@ -13,12 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac466be9-d96f-4a38-8f1e-083a716bf52f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Content/GameMode/GM_Cooking.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Content/GameMode/GM_Cooking.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/DropBoxActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/DropBoxActor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Public/DropBoxActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Public/DropBoxActor.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,10 +84,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2pLeTTWUaNAhLhbKXUtfsCIAZk0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -103,7 +98,8 @@
     "C++ Project.Projet_AI.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "DropBoxMoveIngredients",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Map",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -201,7 +197,10 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
   </component>
@@ -214,6 +213,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732549791643</updated>
       <workItem from="1732549795083" duration="5821000" />
+      <workItem from="1732569974502" duration="6000" />
     </task>
     <servers />
   </component>
