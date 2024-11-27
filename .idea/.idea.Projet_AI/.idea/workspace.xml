@@ -13,27 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="10d0c60e-53a4-4da7-adb8-7a2f69777218" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_apple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_apple.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_banana_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_banana_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_bread_07.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_bread_07.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_broccoli.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_broccoli.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_carrot_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_carrot_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_cheese_05.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_cheese_05.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_meat_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_meat_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_salad.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_salad.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_sausage_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_sausage_02.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_tomato.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_tomato.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_watermelon_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_food_watermelon_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_sack_09.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/meshes/props/food/SM_PROP_sack_09.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Butter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Butter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Chiken_Fillet_Raw.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Chiken_Fillet_Raw.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Milk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Milk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Salmon_Cooked.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Salmon_Cooked.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Strawberry_Raw.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Strawberry_Raw.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Sugar_Packaging_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Poly-MegaSurvivalFood/Models/SM_Sugar_Packaging_03.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Content/Data/DT_IngredientsTable.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Content/Data/DT_IngredientsTable.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Actor/RecipeItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/Actor/RecipeItem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BT_AI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/SpawnManager/EQS_findNextSpawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projet_AI/Private/AIControllerBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,114 +49,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -180,27 +59,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;C++ Project.Projet_AI.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;DropBoxMoveIngredients&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C++ Project.Projet_AI.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "DropBoxMoveIngredients",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\berge\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\berge\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="C++ Project.Projet_AI">
     <configuration name="Projet_AI" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -717,6 +596,7 @@
       <workItem from="1732635562878" duration="7027000" />
       <workItem from="1732648996103" duration="7339000" />
       <workItem from="1732721074954" duration="759000" />
+      <workItem from="1732722261060" duration="1374000" />
     </task>
     <servers />
   </component>
@@ -733,6 +613,11 @@
           <url>file://$PROJECT_DIR$/Source/Projet_AI/Private/AICharacter.cpp</url>
           <line>141</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Plugins/CookingFactory/Source/CookingFactory/Private/GameState/CookingGameState.cpp</url>
+          <line>10</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
