@@ -15,7 +15,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10d0c60e-53a4-4da7-adb8-7a2f69777218" name="Changes" comment="" />
+    <list default="true" id="10d0c60e-53a4-4da7-adb8-7a2f69777218" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projet_AI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BB_AI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_DroppingZone.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_DroppingZone.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fantastic_Village_Pack/maps/map_village_day.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet_AI.sln.DotSettings.user" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,20 +175,14 @@
     "C++ Project.Projet_AI.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Map",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\berge\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\berge\\AppData\\Local\\Symbols\\src"
-    ]
   }
 }]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.EpicGames.AspNet">
@@ -742,6 +745,7 @@
       <workItem from="1732635562878" duration="7027000" />
       <workItem from="1732648996103" duration="7339000" />
       <workItem from="1732721074954" duration="759000" />
+      <workItem from="1732727340962" duration="2816000" />
     </task>
     <servers />
   </component>
