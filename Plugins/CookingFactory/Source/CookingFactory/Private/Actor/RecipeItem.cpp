@@ -50,7 +50,7 @@ void ARecipeItem::BeginPlay()
 {
 	Super::BeginPlay();
 	SetMesh(IngredientMesh);
-	StaticMesh->SetRelativeScale3D(FVector(2,2,2));
+	StaticMesh->SetRelativeScale3D(FVector(1.5,1.5,1.5));
 	SphereCollision->SetSimulatePhysics(true);
 	
 }
