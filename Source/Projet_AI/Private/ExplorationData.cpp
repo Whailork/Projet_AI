@@ -50,7 +50,6 @@ ARecipeItem* UExplorationData::checkForItem(FString itemType)
 	{
 		return nullptr;
 	}
-	
 	ARecipeItem* itemToReturn = itemsMap[enumType][0];
 	itemsMap[enumType].RemoveAt(0);
 	return itemToReturn;
