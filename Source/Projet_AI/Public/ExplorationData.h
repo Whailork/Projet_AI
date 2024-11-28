@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Actor/RecipeItem.h"
-#include "UObject/NoExportTypes.h"
 #include "ExplorationData.generated.h"
 
 /**
@@ -17,9 +16,11 @@ class PROJET_AI_API UExplorationData : public UObject
 public:
 
 	UExplorationData();
-
+	
 	TMap<EIngredientType,TArray<ARecipeItem*>> itemsMap;
 
 	UFUNCTION(BlueprintCallable)
-	ARecipeItem* checkForItem(FString itemType);
+	ARecipeItem* checkForItem(EIngredientType itemType);
+	UFUNCTION(BlueprintCallable)
+	bool RemoveItemFromList(ARecipeItem* item);
 };

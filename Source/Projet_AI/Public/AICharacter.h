@@ -67,14 +67,14 @@ public:
 	void SetTriggerNotify(bool value);
 
 	UFUNCTION(BlueprintCallable)
-	void Grab(ARecipeItem* targetIngredient);
+	bool Grab(ARecipeItem* targetIngredient);
 	UFUNCTION(BlueprintCallable)
 	void attatchIngredient(ARecipeItem* targetIngredient);
 	UFUNCTION(BlueprintCallable)
 	void Drop();
 
 	UFUNCTION(BlueprintCallable)
-	FString getFoodType();
+	EIngredientType getFoodType();
 
 protected:
 	// Called when the game starts or when spawned
