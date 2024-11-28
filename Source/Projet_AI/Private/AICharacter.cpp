@@ -142,29 +142,25 @@ void AAICharacter::SetTriggerNotify(bool value)
 
 bool AAICharacter::Grab(ARecipeItem* targetIngredient)
 {
-		
-	if (FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
-	{
-		triggerGrab = true;
-		return true;
-	}
-	return false;
+	
+	triggerGrab = true;
+	return true;
+
 	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
 }
 
 void AAICharacter::attatchIngredient(ARecipeItem* targetIngredient)
 {
-	if(FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
+	
+	//si on disable pas la physic, il ne bougera pas
+	targetIngredient->SphereCollision->SetSimulatePhysics(false);
+	if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
 	{
-		//si on disable pas la physic, il ne bougera pas
-		targetIngredient->SphereCollision->SetSimulatePhysics(false);
-		if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
-		{
-			currentIngredient = targetIngredient;
-			AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
-			controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),targetIngredient);
-		}
-	}
+		currentIngredient = targetIngredient;
+		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
+		controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),targetIngredient);
+	}	
+	
 	
 }
 
