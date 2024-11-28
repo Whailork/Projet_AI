@@ -13,9 +13,9 @@ UExplorationData::UExplorationData()
 	itemsMap.Add(EIngredientType::Fruit_Vegetable);
 }
 
-ARecipeItem* UExplorationData::checkForItem(FString itemType)
+ARecipeItem* UExplorationData::checkForItem(EIngredientType itemType)
 {
-	EIngredientType enumType;
+	/*EIngredientType enumType;
 	if(itemType == "Cereal")
 	{
 		enumType = EIngredientType::Cereal;
@@ -44,13 +44,30 @@ ARecipeItem* UExplorationData::checkForItem(FString itemType)
 				}
 			}
 		}
-	}
+	}*/
 	
-	if(itemsMap[enumType].IsEmpty())
+	if(itemsMap[itemType].IsEmpty())
 	{
 		return nullptr;
 	}
-	ARecipeItem* itemToReturn = itemsMap[enumType][0];
-	itemsMap[enumType].RemoveAt(0);
+	ARecipeItem* itemToReturn = itemsMap[itemType][0];
+	RemoveItemFromList(itemToReturn);
 	return itemToReturn;
 }
+
+bool UExplorationData::RemoveItemFromList(ARecipeItem* item)
+{
+	if(!itemsMap[item->IngredientType].IsEmpty())
+	{
+		if(itemsMap[item->IngredientType].Find(item))
+		{
+			itemsMap[item->IngredientType].Remove(item);
+			return true;
+		}
+	}
+	
+	return false;
+	
+}
+
+

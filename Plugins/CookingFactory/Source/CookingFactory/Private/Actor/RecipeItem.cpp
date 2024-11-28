@@ -4,6 +4,16 @@
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception/AISense_Sight.h"
 
+void ARecipeItem::SetInDroppingZone(bool value)
+{
+	InDroppingZone = value;
+}
+
+bool ARecipeItem::IsInDroppingZone()
+{
+	return InDroppingZone;
+}
+
 ARecipeItem::ARecipeItem()
 {
 	PrimaryActorTick.bCanEverTick = true;

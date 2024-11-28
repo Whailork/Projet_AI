@@ -12,6 +12,7 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "ExplorationData.h"
 #include "InputActionValue.h"
 #include "Actor/RecipeItem.h"
 #include "BehaviorTree/BlackboardComponent.h"
@@ -139,66 +140,51 @@ void AAICharacter::SetTriggerNotify(bool value)
 }
 
 
-void AAICharacter::Grab(ARecipeItem* targetIngredient)
+bool AAICharacter::Grab(ARecipeItem* targetIngredient)
 {
-		
-	if (FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Ai grab"));
-		triggerGrab = true;
-	}
 	
+	triggerGrab = true;
+	return true;
+
 	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
 }
 
 void AAICharacter::attatchIngredient(ARecipeItem* targetIngredient)
 {
-	if(FVector::Dist(targetIngredient->GetActorLocation(), GetActorLocation()) < 300)
+	
+	//si on disable pas la physic, il ne bougera pas
+	targetIngredient->SphereCollision->SetSimulatePhysics(false);
+	if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
 	{
-		//si on disable pas la physic, il ne bougera pas
-		targetIngredient->SphereCollision->SetSimulatePhysics(false);
-		if(targetIngredient->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale,FName("Grab")))
-		{
-			currentIngredient = targetIngredient;
-			AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
-			controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),targetIngredient);
-		}
-	}
+		currentIngredient = targetIngredient;
+		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
+		controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),targetIngredient);
+	}	
+	
 	
 }
 
 void AAICharacter::Drop()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Ai Drop"));
+	
 	if(currentIngredient)
 	{
+		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
+		UExplorationData* data = Cast<UExplorationData>(controller->BlackboardComponent->GetValueAsObject("ExplorationData"));
+		if(data)
+		{
+			data->RemoveItemFromList(currentIngredient);
+		}
 		
 		currentIngredient->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		currentIngredient->SphereCollision->SetSimulatePhysics(true);
 		currentIngredient = nullptr;
-		AAIControllerBase* controller = Cast<AAIControllerBase>(Controller);
-		controller->BlackboardComponent->SetValueAsObject(TEXT("GrabbedIngredient"),nullptr);
 	}
 }
 
-FString AAICharacter::getFoodType()
+EIngredientType AAICharacter::getFoodType()
 {
-	if(FoodType == EIngredientType::Cereal)
-	{
-		return "Cereal";
-	}
-	if(FoodType == EIngredientType::Dairy)
-	{
-		return "Dairy";
-	}
-	if(FoodType == EIngredientType::Meet)
-	{
-		return "Meet";
-	}
-	if (FoodType == EIngredientType::Fruit_Vegetable)
-	{
-		return "Fruit_Vegetable";
-	}
-	return "";
+	return FoodType;
 	
 }

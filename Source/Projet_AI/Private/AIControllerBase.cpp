@@ -38,7 +38,7 @@ AAIControllerBase::AAIControllerBase(const FObjectInitializer& ObjectInitializer
     
     //settings par defaut pour la sight
     SightConfig->PeripheralVisionAngleDegrees = 50.0f;
-    SightConfig->SightRadius = 5000.0f;
+    SightConfig->SightRadius = 1000.0f;
     SightConfig->SetMaxAge(5.0f);
     SightConfig->AutoSuccessRangeFromLastSeenLocation = 2.0f;
     SightConfig->LoseSightRadius = 2500.0f;
@@ -88,14 +88,14 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
             BehaviorTreeComponent->StartTree(*AICharactere->TreeAsset);
         }
         //on ramasse la position d'une dropbox et on la set comme position de retour dans le blackboard
-        for (auto Element : GetLevel()->Actors)
+        /*for (auto Element : GetLevel()->Actors)
         {
             if(Element.IsA(ADropBoxActor::StaticClass()))
             {
                 BlackboardComponent->SetValueAsVector(TEXT("CookingZoneLocation"),Element->GetActorLocation());
                 break;
             }
-        }
+        }*/
         
     }
 }
@@ -119,6 +119,9 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                 {
                     if(gameState->isIngredientInActiveRecipe(ingredient->IngredientTag))
                     {
+                        //si l'ingredient n'est pas dans la dropping zone
+                        if(!ingredient->InDroppingZone)
+                        {
                         //si l'Ai n'a rien dans ses mains
                         if(possessedAi->currentIngredient == nullptr)
                         {
@@ -133,19 +136,19 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                                 // Def la position de l'acteur comme TargetLocation 
                                 FVector TargetLocation = Actor->GetActorLocation();
                                 BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
-                                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, FString::Printf(TEXT("IngredientLocation set to: %s"), *TargetLocation.ToString()));
-                                //possessedAi->Grab(ingredient);
+                               
                             }
                             else
                             {
-                                //l'Ai averti les autres
-                                possessedAi->triggerNotify = true;
+                               
                                 
                                 UExplorationData* data = Cast<UExplorationData>(BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")));
                                 if(data)
                                 {
                                     if(!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
                                     {
+                                        //l'Ai averti les autres
+                                        possessedAi->triggerNotify = true;
                                         data->itemsMap[ingredient->IngredientType].Add(ingredient);
                                         GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
                             
@@ -158,10 +161,13 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                             //on fait apparaitre un point d'exclamation au dessus de sa tête pour dire qu'il l'a vu
                         }
                         
+                        }
+                        
                     }
                     else
                     {
                         //l'Ai shrug et continue l'exploration
+                        GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Red, TEXT("Useless Ingredient"));
                         possessedAi->triggerShrug = true;
                     }
                 }
