@@ -7,12 +7,13 @@
 ADropBoxActor::ADropBoxActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
 
 	BoxCollision = CreateDefaultSubobject<UBoxComponent>("BoxCollision");
-	RootComponent = BoxCollision;
+	BoxCollision->SetupAttachment(RootComponent);
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	StaticMesh->SetupAttachment(BoxCollision);
+	StaticMesh->SetupAttachment(RootComponent);
 }
 
 void ADropBoxActor::BeginPlay()
