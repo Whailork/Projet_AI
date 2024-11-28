@@ -28,9 +28,9 @@ void ADropBoxActor::CompleteRecipe()
 {
 	bHasRecipe = false;
 	RequiredTags.Empty();
-	for (auto Element :CurrentIngredients)
+	for (int i = 0; i < CurrentIngredients.Num(); i++)
 	{
-		Element->Destroy();
+		CurrentIngredients[i]->Destroy();
 	}
 	CurrentIngredients.Empty();
 	CurrentTags.Empty();

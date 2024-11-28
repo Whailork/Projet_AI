@@ -7,7 +7,7 @@
 #include "RecipeFactorySubsystem.generated.h"
 
 
-enum class EIngredientType;
+enum class EIngredientType : uint8;
 
 USTRUCT(BlueprintType)
 struct FIngredientData

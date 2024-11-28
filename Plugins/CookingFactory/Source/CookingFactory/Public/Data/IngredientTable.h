@@ -4,8 +4,8 @@
 #include"GameplayTagContainer.h"
 #include "IngredientTable.generated.h"
 
-UENUM()
-enum class EIngredientType { Meet, Fruit_Vegetable, Dairy, Cereal };
+UENUM(BlueprintType,Blueprintable)
+enum class EIngredientType : uint8 { Meet, Fruit_Vegetable, Dairy, Cereal };
 
 USTRUCT()
 struct FIngredientTable : public FTableRowBase

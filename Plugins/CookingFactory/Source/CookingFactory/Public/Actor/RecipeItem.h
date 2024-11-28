@@ -5,7 +5,7 @@
 #include"GameplayTagContainer.h"
 #include "RecipeItem.generated.h"
 
-enum class EIngredientType;
+enum class EIngredientType : uint8;
 
 UCLASS()
 class COOKINGFACTORY_API ARecipeItem : public AActor
@@ -26,6 +26,13 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	EIngredientType IngredientType;
+
+	UPROPERTY()
+	bool InDroppingZone;
+	UFUNCTION(BlueprintCallable)
+	void SetInDroppingZone(bool value);
+	UFUNCTION(BlueprintCallable)
+	bool IsInDroppingZone();
 public:
 	ARecipeItem();
 
