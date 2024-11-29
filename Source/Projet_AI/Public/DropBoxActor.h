@@ -15,8 +15,9 @@ class PROJET_AI_API ADropBoxActor : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* StaticMesh;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* BoxCollision;
+	
 	UPROPERTY()
 	TArray<FGameplayTag> RequiredTags;
 	UPROPERTY()

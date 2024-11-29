@@ -7,13 +7,17 @@
 ADropBoxActor::ADropBoxActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
 
-	BoxCollision = CreateDefaultSubobject<UBoxComponent>("BoxCollision");
-	BoxCollision->SetupAttachment(RootComponent);
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+	RootComponent->Mobility = EComponentMobility::Type::Movable;
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+	StaticMesh->Mobility = EComponentMobility::Type::Movable;
 	StaticMesh->SetupAttachment(RootComponent);
+	
+	BoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
+	BoxCollision->SetupAttachment(RootComponent);
+	BoxCollision->Mobility = EComponentMobility::Type::Movable;
 }
 
 void ADropBoxActor::BeginPlay()
@@ -51,23 +55,22 @@ void ADropBoxActor::OnBeginOverlap(AActor* ThisActor, AActor* OtherActor)
 		CurrentTags.Add(Ingredient->IngredientTag);
 		//on check si la recette est complète
 		bool recipeIncomplete = false;
-		if(CurrentTags.Num() == RequiredTags.Num())
+		if (CurrentTags.Num() == RequiredTags.Num())
 		{
 			for (auto tag : RequiredTags)
 			{
-				if(!CurrentTags.Contains(tag))
+				if (!CurrentTags.Contains(tag))
 				{
 					recipeIncomplete = true;
 					break;
 				}
 			}
-			if(!recipeIncomplete)
+			if (!recipeIncomplete)
 			{
 				CompleteRecipe();
 				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("recipeComplete"));
 				//todo : on ajoute du score ici
 			}
-			
 		}
 	}
 }
@@ -81,23 +84,22 @@ void ADropBoxActor::OnEndOverlap(AActor* ThisActor, AActor* OtherActor)
 		CurrentTags.RemoveSingle(Ingredient->IngredientTag);
 		//on check si la recette est complète
 		bool recipeIncomplete = false;
-		if(CurrentTags.Num() == RequiredTags.Num())
+		if (CurrentTags.Num() == RequiredTags.Num())
 		{
 			for (auto tag : RequiredTags)
 			{
-				if(!CurrentTags.Contains(tag))
+				if (!CurrentTags.Contains(tag))
 				{
 					recipeIncomplete = true;
 					break;
 				}
 			}
-			if(!recipeIncomplete)
+			if (!recipeIncomplete)
 			{
 				CompleteRecipe();
 				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("recipeComplete"));
 				//todo : on ajoute du score ici
 			}
-			
 		}
 	}
 }
@@ -107,7 +109,7 @@ void ADropBoxActor::SetRecipe(const FRecipeData& InRecipeData)
 	bHasRecipe = true;
 	RecipeData = InRecipeData;
 	//on load les ingredients dans la liste de tags requis  pour la comparaison
-	for(auto ingredient : InRecipeData.IngredientsList)
+	for (auto ingredient : InRecipeData.IngredientsList)
 	{
 		RequiredTags.Add(ingredient.Name);
 	}
