@@ -67,9 +67,18 @@ void ADropBoxActor::OnBeginOverlap(AActor* ThisActor, AActor* OtherActor)
 			}
 			if (!recipeIncomplete)
 			{
+				ingredientscore = 0;
+				for (auto* Item : CurrentIngredients)
+				{
+					ingredientscore += 3;
+				}
+
+				score += ingredientscore;
+				FString ScoreMessage = FString::Printf(TEXT("Score total ajouté : %d"), ingredientscore);
+				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, ScoreMessage);
+				
 				CompleteRecipe();
 				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("recipeComplete"));
-				//todo : on ajoute du score ici
 			}
 		}
 	}
