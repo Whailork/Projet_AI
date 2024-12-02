@@ -14,7 +14,6 @@ void URecipeFactorySubsystem::Init(const UDataTable* InIngredientsTable, const U
 	}
 	IngredientsContainer = InIngredientsTable;
 	RecipesContainer = InRecipesTable;
-	
 }
 
 TArray<FRecipeData> URecipeFactorySubsystem::GenerateRecipes(const int32 InNumOfRecipe)
@@ -37,7 +36,7 @@ FRecipeData URecipeFactorySubsystem::AddRecipe() const
 }
 
 ARecipeItem* URecipeFactorySubsystem::CreateIngredientItem(const FGameplayTag RecipeTag, const FVector InLocation,
-                                                           const FRotator InRotation) 
+                                                           const FRotator InRotation)
 {
 	TArray<FIngredientTable*> OutIngredientRows;
 	//if (IngredientsContainer->GetRowMap().Num() > 0){}
@@ -87,13 +86,18 @@ FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 		NewRecipe.RecipeName = RandomRecipeRow->Name;
 		NewRecipe.Icon = RandomRecipeRow->Icon;
 
-		TArray<int>Index{-1};
+		TArray<int> Index{-1};
 
 		for (int i = 0; i < NumOfItem; i++)
 		{
 			int32 IngredientChosen = FMath::RandRange(0, RandomRecipeRow->Ingredients.Num() - 1);
-			while(Index.Contains(IngredientChosen))
+			int32 CurrentTentative = 0;
+			constexpr int32 MaxTentative = 5;
+			
+			while (Index.Contains(IngredientChosen))
 			{
+				CurrentTentative++;
+				if(CurrentTentative >= MaxTentative)break;
 				IngredientChosen = FMath::RandRange(0, RandomRecipeRow->Ingredients.Num() - 1);
 			}
 
@@ -106,7 +110,8 @@ FRecipeData URecipeFactorySubsystem::CreateRecipe() const
 			};
 			FIngredientTable** Ingredient = OutIngredientRows.FindByPredicate(Predicate);
 
-			const FIngredientData* NewIngredient = new FIngredientData((*Ingredient)->Name, (*Ingredient)->Mesh,(*Ingredient)->Icon, (*Ingredient)->Type);
+			const FIngredientData* NewIngredient = new FIngredientData((*Ingredient)->Name, (*Ingredient)->Mesh,
+			                                                           (*Ingredient)->Icon, (*Ingredient)->Type);
 
 			NewRecipe.IngredientsList.Add(*NewIngredient);
 		}
