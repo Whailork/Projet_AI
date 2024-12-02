@@ -15,36 +15,6 @@ UExplorationData::UExplorationData()
 
 ARecipeItem* UExplorationData::checkForItem(EIngredientType itemType)
 {
-	/*EIngredientType enumType;
-	if(itemType == "Cereal")
-	{
-		enumType = EIngredientType::Cereal;
-	}
-	else
-	{
-		if(itemType == "Meet")
-		{
-			enumType = EIngredientType::Meet;
-		}
-		else
-		{
-			if(itemType == "Dairy")
-			{
-				enumType = EIngredientType::Dairy;
-			}
-			else
-			{
-				if(itemType == "Fruit_Vegetable")
-				{
-					enumType = EIngredientType::Fruit_Vegetable;
-				}
-				else
-				{
-					return nullptr;
-				}
-			}
-		}
-	}*/
 	
 	if(itemsMap[itemType].IsEmpty())
 	{
