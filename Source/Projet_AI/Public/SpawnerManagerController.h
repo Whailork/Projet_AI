@@ -15,10 +15,7 @@ UCLASS()
 class PROJET_AI_API ASpawnerManagerController : public AAIController
 {
 	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, Category = "Ingredient")
-	TSubclassOf<AActor> SpawnedIngredient;
-
+	
 	FVector SpawnLocation;
 	TArray<FGameplayTag> toSpawnList;
 

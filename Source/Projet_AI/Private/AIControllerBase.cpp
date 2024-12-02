@@ -80,6 +80,7 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
             if(!BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")))
             {
                 UExplorationData* data = NewObject<UExplorationData>();
+                Cast<ACookingGameState>(GetWorld()->GetGameState())->ExplorationData = data;
                 BlackboardComponent->SetValueAsObject(TEXT("ExplorationData"),data);
             }
             
@@ -120,49 +121,47 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                     if(gameState->isIngredientInActiveRecipe(ingredient->IngredientTag))
                     {
                         //si l'ingredient n'est pas dans la dropping zone
-                        if(!ingredient->InDroppingZone)
+                        if (!ingredient->InDroppingZone)
                         {
-                        //si l'Ai n'a rien dans ses mains
-                        if(possessedAi->currentIngredient == nullptr)
-                        {
-                            //si l'Ai peu le pickup
-                            if(possessedAi->FoodType == ingredient->IngredientType)
+                            //si l'Ai n'a rien dans ses mains
+                            if (possessedAi->currentIngredient == nullptr)
                             {
-                                //pickup ingredient
-                                // Def l'acteur comme TargetIngredient
-                                BlackboardComponent->SetValueAsObject(TEXT("TargetIngredient"), Actor);
-                                GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green, FString::Printf(TEXT("TargetIngredient set to: %s"), *Actor->GetName()));
-
-                                // Def la position de l'acteur comme TargetLocation 
-                                FVector TargetLocation = Actor->GetActorLocation();
-                                BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
-                               
-                            }
-                            else
-                            {
-                               
-                                
-                                UExplorationData* data = Cast<UExplorationData>(BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")));
-                                if(data)
+                                //si l'Ai peu le pickup
+                                if (possessedAi->FoodType == ingredient->IngredientType)
                                 {
-                                    if(!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
+                                    //pickup ingredient
+                                    // Def l'acteur comme TargetIngredient
+                                    BlackboardComponent->SetValueAsObject(TEXT("TargetIngredient"), Actor);
+                                    GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green,
+                                                                     FString::Printf(
+                                                                         TEXT("TargetIngredient set to: %s"),
+                                                                         *Actor->GetName()));
+
+                                    // Def la position de l'acteur comme TargetLocation 
+                                    FVector TargetLocation = Actor->GetActorLocation();
+                                    BlackboardComponent->SetValueAsVector(TEXT("IngredientLocation"), TargetLocation);
+                                }
+                                else
+                                {
+                                    UExplorationData* data = Cast<UExplorationData>(BlackboardComponent->GetValueAsObject(TEXT("ExplorationData")));
+                                    if (data)
                                     {
-                                        //l'Ai averti les autres
-                                        possessedAi->triggerNotify = true;
-                                        data->itemsMap[ingredient->IngredientType].Add(ingredient);
-                                        GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
-                            
+                                        if (!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
+                                        {
+                                            //l'Ai averti les autres
+                                            possessedAi->triggerNotify = true;
+                                            data->itemsMap[ingredient->IngredientType].Add(ingredient);
+                                            GEngine->AddOnScreenDebugMessage(
+                                                -1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
+                                        }
                                     }
                                 }
                             }
+                            else
+                            {
+                                //on fait apparaitre un point d'exclamation au dessus de sa tête pour dire qu'il l'a vu
+                            }
                         }
-                        else
-                        {
-                            //on fait apparaitre un point d'exclamation au dessus de sa tête pour dire qu'il l'a vu
-                        }
-                        
-                        }
-                        
                     }
                     else
                     {
