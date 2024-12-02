@@ -24,6 +24,9 @@ public:
 	FOnDisableRecipe OnDisableRecipe_Event;
 
 public:
+	// il faut que je stocke l'exploration data quelque part sinon elle se fait erase par le garbage collector
+	UPROPERTY()
+	UObject* ExplorationData;
 	bool ForceActiveRecipe();
 	bool ForceDisableRecipe(const FGameplayTag RecipeTag);
 

@@ -38,16 +38,20 @@ void ASpawnerManagerController::OnPossess(APawn* InPawn)
 
 	//on load les recipes déjà existantes s'il y en a
 	ACookingGameState* gameState = Cast<ACookingGameState>(GetWorld()->GetGameState());
-	TArray<FRecipeData> recipes = gameState->GetActiveRecipes();
-	for (FRecipeData Recipe : recipes)
+	if(gameState)
 	{
-		for (FIngredientData Ingredient : Recipe.IngredientsList)
+		TArray<FRecipeData> recipes = gameState->GetActiveRecipes();
+		for (FRecipeData Recipe : recipes)
 		{
-			toSpawnList.Add(Ingredient.Name);
+			for (FIngredientData Ingredient : Recipe.IngredientsList)
+			{
+				toSpawnList.Add(Ingredient.Name);
+			}
 		}
+		// on s'abonne à la delegate pour quand on va avoir des nouvelles recettes
+		gameState->OnEnableRecipe_Event.AddDynamic(this,&ASpawnerManagerController::OnNewRecipe);
 	}
-    // on s'abonne à la delegate pour quand on va avoir des nouvelles recettes
-	gameState->OnEnableRecipe_Event.AddDynamic(this,&ASpawnerManagerController::OnNewRecipe);
+	
 }
 
 void ASpawnerManagerController::OnNewRecipe(FRecipeData data)
