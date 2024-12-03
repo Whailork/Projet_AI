@@ -27,10 +27,6 @@ class PROJET_AI_API ADropBoxActor : public AActor
 
 	UPROPERTY()
 	FRecipeData RecipeData;
-    
-    UPROPERTY(EditAnywhere, BlueprintReadWrite , meta = (AllowPrivateAccess = "true"))
-	int score;
-	int ingredientscore; 
 
 	bool bHasRecipe;
 
