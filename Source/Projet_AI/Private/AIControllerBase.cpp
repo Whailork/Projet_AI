@@ -9,6 +9,7 @@
 #include "AICharacter.h"
 #include "DropBoxActor.h"
 #include "ExplorationData.h"
+#include "NavigationSystem.h"
 #include "Actor/RecipeItem.h"
 #include "GameState/CookingGameState.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -194,5 +195,28 @@ void AAIControllerBase::OnTargetPerceptionForgotten(AActor* Actor)
         }
     }
     */
+}
+
+void AAIControllerBase::BackToNavMesh()
+{
+    FVector ownerLocation = GetPawn()->GetActorLocation();
+    UNavigationSystemV1* navSystem = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    FVector result;
+    float randomRadius = 0;
+    bool bSucess = false;
+    do
+    {
+        randomRadius+=50;
+       
+        GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, FString::SanitizeFloat(randomRadius));
+
+        bSucess = navSystem->K2_GetRandomLocationInNavigableRadius(GetWorld(),ownerLocation,result,randomRadius);
+
+        if(randomRadius > 10000000000)
+        {
+            break;
+        }
+    }while(!bSucess || ownerLocation.Equals(result) || !GetPawn()->TeleportTo(FVector(result.X,result.Y,ownerLocation.Z),GetPawn()->GetActorRotation()));
+   
 }
 

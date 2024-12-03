@@ -28,6 +28,9 @@ public:
     UFUNCTION()
 	void OnTargetPerceptionForgotten(AActor* Actor);
 
+	UFUNCTION(BlueprintCallable)
+	void BackToNavMesh();
+
 	class AAICharacter* possessedAi;
 
     UPROPERTY(Transient)
