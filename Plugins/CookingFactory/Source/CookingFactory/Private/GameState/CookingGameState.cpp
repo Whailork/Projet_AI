@@ -36,6 +36,11 @@ bool ACookingGameState::isIngredientInActiveRecipe(FGameplayTag ingredientTag)
 	return false;
 }
 
+void ACookingGameState::UpdateScore(int plusValue)
+{
+	Score += plusValue;
+}
+
 bool ACookingGameState::ForceActiveRecipe()
 {
 	if (InactiveRecipe.IsEmpty())return false;

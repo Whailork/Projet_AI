@@ -27,6 +27,11 @@ public:
 	// il faut que je stocke l'exploration data quelque part sinon elle se fait erase par le garbage collector
 	UPROPERTY()
 	UObject* ExplorationData;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite , meta = (AllowPrivateAccess = "true"))
+	int Score = 0;
+	UFUNCTION(BlueprintCallable)
+	void UpdateScore(int plusValue);
+	
 	bool ForceActiveRecipe();
 	bool ForceDisableRecipe(const FGameplayTag RecipeTag);
 

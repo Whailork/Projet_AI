@@ -3,6 +3,7 @@
 #include "Actor/RecipeItem.h"
 #include "Components/BoxComponent.h"
 #include "GameMde/CookingGameMode.h"
+#include "GameState/CookingGameState.h"
 
 ADropBoxActor::ADropBoxActor()
 {
@@ -67,13 +68,13 @@ void ADropBoxActor::OnBeginOverlap(AActor* ThisActor, AActor* OtherActor)
 			}
 			if (!recipeIncomplete)
 			{
-				ingredientscore = 0;
-				for (auto* Item : CurrentIngredients)
+				int ingredientscore = 0;
+				for (int i = 0; i < CurrentIngredients.Num(); i++)
 				{
 					ingredientscore += 3;
 				}
 
-				score += ingredientscore;
+				Cast<ACookingGameState>(GetWorld()->GetGameState())->UpdateScore(ingredientscore);
 				FString ScoreMessage = FString::Printf(TEXT("Score total ajouté : %d"), ingredientscore);
 				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, ScoreMessage);
 				
@@ -105,13 +106,13 @@ void ADropBoxActor::OnEndOverlap(AActor* ThisActor, AActor* OtherActor)
 			}
 			if (!recipeIncomplete)
 			{
-				ingredientscore = 0;
-				for (auto* Item : CurrentIngredients)
+				int ingredientscore = 0;
+				for (int i = 0; i < CurrentIngredients.Num(); i++)
 				{
 					ingredientscore += 3;
 				}
 
-				score += ingredientscore;
+				Cast<ACookingGameState>(GetWorld()->GetGameState())->UpdateScore(ingredientscore);
 				FString ScoreMessage = FString::Printf(TEXT("Score total ajouté : %d"), ingredientscore);
 				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, ScoreMessage);
 				
