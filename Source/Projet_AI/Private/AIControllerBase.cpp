@@ -9,6 +9,7 @@
 #include "AICharacter.h"
 #include "DropBoxActor.h"
 #include "ExplorationData.h"
+#include "NavigationSystem.h"
 #include "Actor/RecipeItem.h"
 #include "GameState/CookingGameState.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -149,7 +150,11 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                                         if (!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
                                         {
                                             //l'Ai averti les autres
-                                            possessedAi->triggerNotify = true;
+                                            if(possessedAi->triggerGrab != true && possessedAi->triggerShrug != true)
+                                            {
+                                                possessedAi->triggerNotify = true;
+                                            }
+                                            
                                             data->itemsMap[ingredient->IngredientType].Add(ingredient);
                                             GEngine->AddOnScreenDebugMessage(
                                                 -1, 20.0f, FColor::Blue, TEXT("Add Ingredient to array"));
@@ -167,7 +172,11 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                     {
                         //l'Ai shrug et continue l'exploration
                         GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Red, TEXT("Useless Ingredient"));
-                        possessedAi->triggerShrug = true;
+                        if(possessedAi->triggerGrab != true && possessedAi->triggerNotify != true)
+                        {
+                            possessedAi->triggerShrug = true;
+                        }
+                        
                     }
                 }
                 
@@ -194,5 +203,28 @@ void AAIControllerBase::OnTargetPerceptionForgotten(AActor* Actor)
         }
     }
     */
+}
+
+void AAIControllerBase::BackToNavMesh()
+{
+    FVector ownerLocation = GetPawn()->GetActorLocation();
+    UNavigationSystemV1* navSystem = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    FVector result;
+    float randomRadius = 0;
+    bool bSucess = false;
+    do
+    {
+        randomRadius+=100;
+       
+        GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, FString::SanitizeFloat(randomRadius));
+
+        bSucess = navSystem->K2_GetRandomLocationInNavigableRadius(GetWorld(),ownerLocation,result,randomRadius);
+
+        if(randomRadius > 10000000000)
+        {
+            break;
+        }
+    }while(!bSucess || ownerLocation.Equals(result) || !GetPawn()->TeleportTo(FVector(result.X,result.Y,ownerLocation.Z),GetPawn()->GetActorRotation()));
+   
 }
 
