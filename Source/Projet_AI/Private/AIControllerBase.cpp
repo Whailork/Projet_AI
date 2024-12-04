@@ -150,8 +150,9 @@ void AAIControllerBase::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Sti
                                         if (!data->itemsMap[ingredient->IngredientType].Contains(ingredient))
                                         {
                                             //l'Ai averti les autres
-                                            if(possessedAi->triggerGrab != true && possessedAi->triggerShrug != true)
+                                            if(possessedAi->triggerGrab != true)
                                             {
+                                                possessedAi->triggerShrug = false;
                                                 possessedAi->triggerNotify = true;
                                             }
                                             
