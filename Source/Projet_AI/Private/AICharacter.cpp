@@ -142,17 +142,11 @@ void AAICharacter::SetTriggerNotify(bool value)
 
 bool AAICharacter::Grab(ARecipeItem* targetIngredient)
 {
-	if(triggerNotify != true && triggerShrug != true)
-	{
-		triggerGrab = true;
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	triggerShrug = false;
+	triggerNotify = false;
+	triggerGrab = true;
+	return true;
 	
-
 	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Grab"));
 }
 
